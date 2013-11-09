@@ -66,8 +66,6 @@
 		0B984C2A182DCE5F00E9794E /* LEXLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEXLog.h; sourceTree = "<group>"; };
 		0B984C2D182DD15500E9794E /* NSString+LEXMusicKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LEXMusicKit.h"; sourceTree = "<group>"; };
 		0B984C2E182DD15500E9794E /* NSString+LEXMusicKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LEXMusicKit.m"; sourceTree = "<group>"; };
-		0B984C31182DD6D600E9794E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		0B984C32182DD6D600E9794E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +94,6 @@
 		0B984BE2182DC98400E9794E = {
 			isa = PBXGroup;
 			children = (
-				0B984C31182DD6D600E9794E /* LICENSE */,
-				0B984C32182DD6D600E9794E /* README.md */,
 				0B984BF0182DC98400E9794E /* LEXMusicKit */,
 				0B984C04182DC98500E9794E /* LEXMusicKitTests */,
 				0B984BED182DC98400E9794E /* Frameworks */,
