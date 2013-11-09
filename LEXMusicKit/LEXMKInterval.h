@@ -30,7 +30,6 @@ enum  {
 };
 typedef int LEXMKInterval;
 
-LEXMKInterval LEXMKIntervalPitchInterval(int semitone1, int semintone2);
 LEXMKInterval LEXMKIntervalPitchIntervalClass(int semitone1, int semitone2);
 LEXMKInterval LEXMKIntervalPitchIntervalClassMod6(int semitone1, int semitone2);
 

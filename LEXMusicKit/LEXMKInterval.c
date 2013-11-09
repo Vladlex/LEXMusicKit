@@ -15,11 +15,6 @@
 
 #define LEXMKMAX(A, B) ((A) < (B) ? (B) : (A))
 
-LEXMKInterval LEXMKIntervalPitchInterval(int semitone1, int semitone2)
-{
-    return semitone2 - semitone1;
-}
-
 LEXMKInterval LEXMKIntervalPitchIntervalClass(int semitone1, int semitone2)
 {
     return (semitone2 - semitone1) % 12;
