@@ -7,7 +7,7 @@
 //
 
 #import "NSString+LEXMusicKit.h"
-
+#import "LEXLog.h"
 
 NSString * NSStringFromLEXMKIntervalUsingDefaultNotation(LEXMKInterval interval)
 {
@@ -73,7 +73,7 @@ NSString * NSStringFromLEXMKIntervalUsingSemitonesAndTones(LEXMKInterval interva
         }
             break;
     }
-    return nil;
+    return sign;
 }
 
 NSString * NSStringFromLEXMKIntervalUsingSignNotation(LEXMKInterval interval, LEXMKIntervalSignNotation notation)
@@ -102,10 +102,10 @@ NSString * NSStringFromLEXMKDiatonicFunctionUsingNotation(LEXMKDiatonicFunction 
 {
     NSMutableString *signs = [NSMutableString string];
     for (int i = 0; i < 7; i++) {
-        LEXMKInterval interval = func.ranges[i];
+        LEXMKInterval interval = func.intervals[i];
         [signs appendString:NSStringFromLEXMKIntervalUsingSignNotation(interval,
                                                                        notation)];
-        if (i != 6) {
+        if (i != 6 && signSeparator) {
             [signs appendString:signSeparator];
         }
     }
