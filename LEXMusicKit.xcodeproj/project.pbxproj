@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B984BEF182DC98400E9794E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BEE182DC98400E9794E /* Foundation.framework */; };
+		0B984BF4182DC98400E9794E /* LEXMusicKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984BF3182DC98400E9794E /* LEXMusicKit.h */; };
+		0B984BF6182DC98400E9794E /* LEXMusicKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984BF5182DC98400E9794E /* LEXMusicKit.m */; };
+		0B984BFD182DC98500E9794E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BFC182DC98500E9794E /* XCTest.framework */; };
+		0B984BFE182DC98500E9794E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BEE182DC98400E9794E /* Foundation.framework */; };
+		0B984C00182DC98500E9794E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BFF182DC98500E9794E /* UIKit.framework */; };
+		0B984C03182DC98500E9794E /* libLEXMusicKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BEB182DC98400E9794E /* libLEXMusicKit.a */; };
+		0B984C09182DC98500E9794E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B984C07182DC98500E9794E /* InfoPlist.strings */; };
+		0B984C0B182DC98500E9794E /* LEXMusicKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C0A182DC98500E9794E /* LEXMusicKitTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B984C01182DC98500E9794E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B984BE3182DC98400E9794E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B984BEA182DC98400E9794E;
+			remoteInfo = LEXMusicKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0B984BE9182DC98400E9794E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				0B984BF4182DC98400E9794E /* LEXMusicKit.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0B984BEB182DC98400E9794E /* libLEXMusicKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLEXMusicKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B984BEE182DC98400E9794E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0B984BF2182DC98400E9794E /* LEXMusicKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LEXMusicKit-Prefix.pch"; sourceTree = "<group>"; };
+		0B984BF3182DC98400E9794E /* LEXMusicKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEXMusicKit.h; sourceTree = "<group>"; };
+		0B984BF5182DC98400E9794E /* LEXMusicKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LEXMusicKit.m; sourceTree = "<group>"; };
+		0B984BFB182DC98500E9794E /* LEXMusicKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LEXMusicKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B984BFC182DC98500E9794E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0B984BFF182DC98500E9794E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		0B984C06182DC98500E9794E /* LEXMusicKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LEXMusicKitTests-Info.plist"; sourceTree = "<group>"; };
+		0B984C08182DC98500E9794E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0B984C0A182DC98500E9794E /* LEXMusicKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LEXMusicKitTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B984BE8182DC98400E9794E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B984BEF182DC98400E9794E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B984BF8182DC98500E9794E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B984C03182DC98500E9794E /* libLEXMusicKit.a in Frameworks */,
+				0B984BFD182DC98500E9794E /* XCTest.framework in Frameworks */,
+				0B984C00182DC98500E9794E /* UIKit.framework in Frameworks */,
+				0B984BFE182DC98500E9794E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B984BE2182DC98400E9794E = {
+			isa = PBXGroup;
+			children = (
+				0B984BF0182DC98400E9794E /* LEXMusicKit */,
+				0B984C04182DC98500E9794E /* LEXMusicKitTests */,
+				0B984BED182DC98400E9794E /* Frameworks */,
+				0B984BEC182DC98400E9794E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B984BEC182DC98400E9794E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B984BEB182DC98400E9794E /* libLEXMusicKit.a */,
+				0B984BFB182DC98500E9794E /* LEXMusicKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B984BED182DC98400E9794E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B984BEE182DC98400E9794E /* Foundation.framework */,
+				0B984BFC182DC98500E9794E /* XCTest.framework */,
+				0B984BFF182DC98500E9794E /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0B984BF0182DC98400E9794E /* LEXMusicKit */ = {
+			isa = PBXGroup;
+			children = (
+				0B984BF3182DC98400E9794E /* LEXMusicKit.h */,
+				0B984BF5182DC98400E9794E /* LEXMusicKit.m */,
+				0B984BF1182DC98400E9794E /* Supporting Files */,
+			);
+			path = LEXMusicKit;
+			sourceTree = "<group>";
+		};
+		0B984BF1182DC98400E9794E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0B984BF2182DC98400E9794E /* LEXMusicKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0B984C04182DC98500E9794E /* LEXMusicKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				0B984C0A182DC98500E9794E /* LEXMusicKitTests.m */,
+				0B984C05182DC98500E9794E /* Supporting Files */,
+			);
+			path = LEXMusicKitTests;
+			sourceTree = "<group>";
+		};
+		0B984C05182DC98500E9794E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0B984C06182DC98500E9794E /* LEXMusicKitTests-Info.plist */,
+				0B984C07182DC98500E9794E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B984BEA182DC98400E9794E /* LEXMusicKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B984C0E182DC98500E9794E /* Build configuration list for PBXNativeTarget "LEXMusicKit" */;
+			buildPhases = (
+				0B984BE7182DC98400E9794E /* Sources */,
+				0B984BE8182DC98400E9794E /* Frameworks */,
+				0B984BE9182DC98400E9794E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LEXMusicKit;
+			productName = LEXMusicKit;
+			productReference = 0B984BEB182DC98400E9794E /* libLEXMusicKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		0B984BFA182DC98500E9794E /* LEXMusicKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B984C11182DC98500E9794E /* Build configuration list for PBXNativeTarget "LEXMusicKitTests" */;
+			buildPhases = (
+				0B984BF7182DC98500E9794E /* Sources */,
+				0B984BF8182DC98500E9794E /* Frameworks */,
+				0B984BF9182DC98500E9794E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B984C02182DC98500E9794E /* PBXTargetDependency */,
+			);
+			name = LEXMusicKitTests;
+			productName = LEXMusicKitTests;
+			productReference = 0B984BFB182DC98500E9794E /* LEXMusicKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B984BE3182DC98400E9794E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Alexei Gordeev";
+			};
+			buildConfigurationList = 0B984BE6182DC98400E9794E /* Build configuration list for PBXProject "LEXMusicKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0B984BE2182DC98400E9794E;
+			productRefGroup = 0B984BEC182DC98400E9794E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B984BEA182DC98400E9794E /* LEXMusicKit */,
+				0B984BFA182DC98500E9794E /* LEXMusicKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B984BF9182DC98500E9794E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B984C09182DC98500E9794E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B984BE7182DC98400E9794E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B984BF6182DC98400E9794E /* LEXMusicKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B984BF7182DC98500E9794E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B984C0B182DC98500E9794E /* LEXMusicKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B984C02182DC98500E9794E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B984BEA182DC98400E9794E /* LEXMusicKit */;
+			targetProxy = 0B984C01182DC98500E9794E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0B984C07182DC98500E9794E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B984C08182DC98500E9794E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0B984C0C182DC98500E9794E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0B984C0D182DC98500E9794E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B984C0F182DC98500E9794E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/LEXMusicKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LEXMusicKit/LEXMusicKit-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0B984C10182DC98500E9794E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/LEXMusicKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LEXMusicKit/LEXMusicKit-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		0B984C12182DC98500E9794E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LEXMusicKit/LEXMusicKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LEXMusicKitTests/LEXMusicKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0B984C13182DC98500E9794E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LEXMusicKit/LEXMusicKit-Prefix.pch";
+				INFOPLIST_FILE = "LEXMusicKitTests/LEXMusicKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B984BE6182DC98400E9794E /* Build configuration list for PBXProject "LEXMusicKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B984C0C182DC98500E9794E /* Debug */,
+				0B984C0D182DC98500E9794E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B984C0E182DC98500E9794E /* Build configuration list for PBXNativeTarget "LEXMusicKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B984C0F182DC98500E9794E /* Debug */,
+				0B984C10182DC98500E9794E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0B984C11182DC98500E9794E /* Build configuration list for PBXNativeTarget "LEXMusicKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B984C12182DC98500E9794E /* Debug */,
+				0B984C13182DC98500E9794E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B984BE3182DC98400E9794E /* Project object */;
+}
