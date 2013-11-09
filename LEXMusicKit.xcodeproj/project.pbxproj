@@ -48,7 +48,6 @@
 /* Begin PBXFileReference section */
 		0B984BEB182DC98400E9794E /* libLEXMusicKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLEXMusicKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B984BEE182DC98400E9794E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0B984BF2182DC98400E9794E /* LEXMusicKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LEXMusicKit-Prefix.pch"; sourceTree = "<group>"; };
 		0B984BFB182DC98500E9794E /* LEXMusicKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LEXMusicKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B984BFC182DC98500E9794E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0B984BFF182DC98500E9794E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -68,6 +67,7 @@
 		0B984C2E182DD15500E9794E /* NSString+LEXMusicKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LEXMusicKit.m"; sourceTree = "<group>"; };
 		0B984C33182DDB8300E9794E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0B984C34182DDB8300E9794E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		0B984C35182DE1CF00E9794E /* LEXMusicKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LEXMusicKit-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +143,7 @@
 		0B984BF1182DC98400E9794E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0B984BF2182DC98400E9794E /* LEXMusicKit-Prefix.pch */,
+				0B984C35182DE1CF00E9794E /* LEXMusicKit-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
