@@ -38,6 +38,4 @@ LEXMKInterval LEXMKIntervalOctaveLimitedInvertedInterval(LEXMKInterval interval)
 
 int LEXMKIntervalGetOctave(LEXMKInterval interval);
 
-// See Inverted intervals!
-
 #endif
