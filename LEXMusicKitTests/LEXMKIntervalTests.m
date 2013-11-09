@@ -28,22 +28,19 @@
     [super tearDown];
 }
 
-- (void)intervalValuesTest
+- (void)testIntervalValues
 {
     XCTAssertTrue(LEXMKIntervalPerfectUnison == 0, @"Unison (Tonic) should be 0");
     XCTAssertTrue(LEXMKIntervalAugmentedFourth == LEXMKIntervalDiminishedFifth, @"Augmented fourth and diminished fifth should have same value");
     XCTAssertTrue(LEXMKIntervalPerfectOctave == 12, @"Octave should be equal 12");
 }
 
-- (void)intervalsMathTest
+- (void)testIntervalMath
 {
     LEXMKInterval interval;
-    
-    interval = LEXMKIntervalPitchInterval(LEXMKIntervalPerfectUnison, LEXMKIntervalPerfectOctave);
-    XCTAssertTrue(interval == 0, @"Interval perfect unisone and perfect octave should be twelwe");
-    
+
     interval = LEXMKIntervalPitchIntervalClass(LEXMKIntervalPerfectFifth, LEXMKIntervalPerfectFifth + 12 * 3);
-    XCTAssertTrue(interval == LEXMKIntervalPerfectFifth, @"Pitch interval classes should be limited by one octave");
+    XCTAssertTrue(interval == 0, @"Same intervals on different octaves should have pitch interval class 0");
     
     interval = LEXMKIntervalPerfectFourth;
     XCTAssertTrue(interval == LEXMKIntervalPitchIntervalClass(LEXMKIntervalPerfectFifth, LEXMKIntervalPerfectOctave),
@@ -53,7 +50,7 @@
     XCTAssertTrue(interval == LEXMKIntervalOctaveLimitedInvertedInterval(LEXMKIntervalMajorSeventh + LEXMKIntervalPerfectOctave * 2), @"Inverted major seventh at any octave should be minor second");
 }
 
-- (void)intervalGetOctaveTest
+- (void)testIntervalGetOctave
 {
     LEXMKInterval interval;
     for (int i = 0; i < 5; i++) {
