@@ -10,22 +10,22 @@
 
 const LEXMKDiatonicFunction LEXMKDiatonicFunctionNull = {0, 0, 0, 0, 0, 0};
 
-LEXMKDiatonicFunction LEXMKDiatonicFunctionCreateWithMode(LEXMKMode mode)
+LEXMKDiatonicFunction LEXMKDiatonicFunctionMakeWithMode(LEXMKMode mode)
 {
     LEXMKDiatonicFunction func;
     switch (mode) {
         case LEXMKModeMajorNatural:
             // T T H T T T H
-            func = LEXMKDFCreate(2,2,1,2,2,2,1);
+            func = LEXMKDFuncMake(2,2,1,2,2,2,1);
             break;
         case LEXMKModeMinorHarmonic:
-            func = LEXMKDFCreate(2,1,2,2,1,3,1);
+            func = LEXMKDFuncMake(2,1,2,2,1,3,1);
             break;
         case LEXMKModeMinorMelodic:
-            func = LEXMKDFCreate(2,1,2,2,2,2,1);
+            func = LEXMKDFuncMake(2,1,2,2,2,2,1);
             break;
         case LEXMKModeMinorNatural:
-            func = LEXMKDFCreate(2, 1, 2, 2, 1, 2, 2);
+            func = LEXMKDFuncMake(2, 1, 2, 2, 1, 2, 2);
             break;
         default:
             func = LEXMKDiatonicFunctionNull;
@@ -34,72 +34,76 @@ LEXMKDiatonicFunction LEXMKDiatonicFunctionCreateWithMode(LEXMKMode mode)
     return func;
 }
 
-LEXMKDiatonicFunction LEXMKDiatonicFunctionCreateWithIntervals(int r1,
-                                                               int r2,
-                                                               int r3,
-                                                               int r4,
-                                                               int r5,
-                                                               int r6,
-                                                               int r7)
+LEXMKDiatonicFunction LEXMKDiatonicFunctionMakeWithIntervals(int i1,
+                                                               int i2,
+                                                               int i3,
+                                                               int i4,
+                                                               int i5,
+                                                               int i6,
+                                                               int i7)
 {
-    int ranges[7] = {r1, r2, r3, r4, r5, r6, r7};
-    return LEXMKDiatonicFunctionCreateWithIntervalVector(ranges);
+    int intervals[7] = {i1, i2, i3 , i4, i5, i6, i7};
+    return LEXMKDiatonicFunctionMakeWithIntervalVector(intervals);
 }
 
-LEXMKDiatonicFunction LEXMKDiatonicFunctionCreateWithIntervalVector(const int * ranges)
+LEXMKDiatonicFunction LEXMKDiatonicFunctionMakeWithIntervalVector(const int * intervals)
 {
     LEXMKDiatonicFunction func;
     for (int i = 0; i <=7; i++) {
-        func.ranges[i] = ranges[i];
+        func.intervals[i] = intervals[i];
     }
     return func;
 }
 
-LEXMKDiatonicFunction LEXMKDiatonicFunctionCreateWithUncompletedIntervals(int r1,
-                                                                          int r2,
-                                                                          int r3,
-                                                                          int r4,
-                                                                          int r5,
-                                                                          int r6)
+LEXMKDiatonicFunction LEXMKDiatonicFunctionMakeWithUncompletedIntervals(int i1,
+                                                                          int i2,
+                                                                          int i3,
+                                                                          int i4,
+                                                                          int i5,
+                                                                          int i6)
 {
-    int ranges [6] = {r1, r2, r3 ,r4 , r5, r6};
-    return LEXMKDiatonicFunctionCreateWithUncompletedIntervalVector(ranges);
+    int intervals [6] = {i1, i2, i3 , i4, i5, i6};
+    return LEXMKDiatonicFunctionMakeWithUncompletedIntervalVector(intervals);
 }
 
-LEXMKDiatonicFunction LEXMKDiatonicFunctionCreateWithUncompletedIntervalVector(const int * ranges)
+LEXMKDiatonicFunction LEXMKDiatonicFunctionMakeWithUncompletedIntervalVector(const int * intervals)
 {
     int sum = 0;
-    int range = 0;
+    int interval = 0;
     LEXMKDiatonicFunction func;
     for (int i = 0; i < 6; i ++) {
-        range = ranges[i];
-        sum += range;
+        interval = intervals[i];
+        sum += interval;
         if (sum >= 12) {
             return LEXMKDiatonicFunctionNull;
         }
-        func.ranges[0] = range;
+        func.intervals[i] = interval;
     }
-    range = 12 - sum;
-    func.ranges[6] = range;
+    interval = 12 - sum;
+    func.intervals[6] = interval;
     return func;
+}
+
+int LEXMKDiatonicFunctionDifferentIntervalIndexInFunctions(LEXMKDiatonicFunction func1, LEXMKDiatonicFunction func2)
+{
+    for (int i = 0; i < 7; i++) {
+        if (func1.intervals[i] != func2.intervals[i]) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 bool LEXMKDiatonicFunctionIsEqualToFunction(LEXMKDiatonicFunction func1, LEXMKDiatonicFunction func2)
 {
-    for (int i = 0; i <= 7; i++) {
-        if (func1.ranges[i] != func2.ranges[i]) {
-            return false;
-        }
-    }
-    return true;
+    return LEXMKDiatonicFunctionDifferentIntervalIndexInFunctions(func1, func2) == -1 ? true : false;
 }
 
 bool LEXMKDiatonicFunctionIsValid(LEXMKDiatonicFunction function)
 {
     int sum = 0;
     for (int i = 0 ; i <= 7; i ++) {
-        int range = function.ranges[i];
-        sum += range;
+        sum += function.intervals[i];
     }
     return (sum == 12);
 }
