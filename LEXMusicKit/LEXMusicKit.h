@@ -1,13 +1,17 @@
 //
 //  LEXMusicKit.h
-//  LEXMusicKit
+//  iChord
 //
 //  Created by Alexei Gordeev on 09.11.13.
-//  Copyright (c) 2013 Alexei Gordeev. All rights reserved.
+//  Copyright (c) 2013 iTech. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef iChord_LEXMusicKit_h
+#define iChord_LEXMusicKit_h
 
-@interface LEXMusicKit : NSObject
+#include "LEXMKDegree.h"
+#include "LEXMKMode.h"
+#include "LEXMKDiatonicFunction.h"
+#include "LEXMKInterval.h"
 
-@end
+#endif //iChord_LEXMusicKit_h

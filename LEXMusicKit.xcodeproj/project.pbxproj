@@ -8,14 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0B984BEF182DC98400E9794E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BEE182DC98400E9794E /* Foundation.framework */; };
-		0B984BF4182DC98400E9794E /* LEXMusicKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984BF3182DC98400E9794E /* LEXMusicKit.h */; };
-		0B984BF6182DC98400E9794E /* LEXMusicKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984BF5182DC98400E9794E /* LEXMusicKit.m */; };
 		0B984BFD182DC98500E9794E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BFC182DC98500E9794E /* XCTest.framework */; };
 		0B984BFE182DC98500E9794E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BEE182DC98400E9794E /* Foundation.framework */; };
 		0B984C00182DC98500E9794E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BFF182DC98500E9794E /* UIKit.framework */; };
 		0B984C03182DC98500E9794E /* libLEXMusicKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BEB182DC98400E9794E /* libLEXMusicKit.a */; };
 		0B984C09182DC98500E9794E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B984C07182DC98500E9794E /* InfoPlist.strings */; };
 		0B984C0B182DC98500E9794E /* LEXMusicKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C0A182DC98500E9794E /* LEXMusicKitTests.m */; };
+		0B984C1C182DC9AE00E9794E /* LEXMKInterval.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C17182DC9AE00E9794E /* LEXMKInterval.c */; };
+		0B984C1D182DC9AE00E9794E /* LEXMKInterval.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C17182DC9AE00E9794E /* LEXMKInterval.c */; };
+		0B984C1E182DC9AE00E9794E /* LEXMKDegree.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C19182DC9AE00E9794E /* LEXMKDegree.c */; };
+		0B984C1F182DC9AE00E9794E /* LEXMKDegree.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C19182DC9AE00E9794E /* LEXMKDegree.c */; };
+		0B984C20182DC9AE00E9794E /* LEXMKDiatonicFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C1B182DC9AE00E9794E /* LEXMKDiatonicFunction.c */; };
+		0B984C21182DC9AE00E9794E /* LEXMKDiatonicFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C1B182DC9AE00E9794E /* LEXMKDiatonicFunction.c */; };
+		0B984C30182DD15500E9794E /* NSString+LEXMusicKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C2E182DD15500E9794E /* NSString+LEXMusicKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +40,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				0B984BF4182DC98400E9794E /* LEXMusicKit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,14 +49,25 @@
 		0B984BEB182DC98400E9794E /* libLEXMusicKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLEXMusicKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B984BEE182DC98400E9794E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0B984BF2182DC98400E9794E /* LEXMusicKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LEXMusicKit-Prefix.pch"; sourceTree = "<group>"; };
-		0B984BF3182DC98400E9794E /* LEXMusicKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEXMusicKit.h; sourceTree = "<group>"; };
-		0B984BF5182DC98400E9794E /* LEXMusicKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LEXMusicKit.m; sourceTree = "<group>"; };
 		0B984BFB182DC98500E9794E /* LEXMusicKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LEXMusicKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B984BFC182DC98500E9794E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0B984BFF182DC98500E9794E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		0B984C06182DC98500E9794E /* LEXMusicKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LEXMusicKitTests-Info.plist"; sourceTree = "<group>"; };
 		0B984C08182DC98500E9794E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0B984C0A182DC98500E9794E /* LEXMusicKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LEXMusicKitTests.m; sourceTree = "<group>"; };
+		0B984C14182DC9AE00E9794E /* LEXMusicKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEXMusicKit.h; sourceTree = "<group>"; };
+		0B984C15182DC9AE00E9794E /* LEXMKMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEXMKMode.h; sourceTree = "<group>"; };
+		0B984C16182DC9AE00E9794E /* LEXMKInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEXMKInterval.h; sourceTree = "<group>"; };
+		0B984C17182DC9AE00E9794E /* LEXMKInterval.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LEXMKInterval.c; sourceTree = "<group>"; };
+		0B984C18182DC9AE00E9794E /* LEXMKDegree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEXMKDegree.h; sourceTree = "<group>"; };
+		0B984C19182DC9AE00E9794E /* LEXMKDegree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LEXMKDegree.c; sourceTree = "<group>"; };
+		0B984C1A182DC9AE00E9794E /* LEXMKDiatonicFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEXMKDiatonicFunction.h; sourceTree = "<group>"; };
+		0B984C1B182DC9AE00E9794E /* LEXMKDiatonicFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LEXMKDiatonicFunction.c; sourceTree = "<group>"; };
+		0B984C2A182DCE5F00E9794E /* LEXLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEXLog.h; sourceTree = "<group>"; };
+		0B984C2D182DD15500E9794E /* NSString+LEXMusicKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LEXMusicKit.h"; sourceTree = "<group>"; };
+		0B984C2E182DD15500E9794E /* NSString+LEXMusicKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LEXMusicKit.m"; sourceTree = "<group>"; };
+		0B984C31182DD6D600E9794E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0B984C32182DD6D600E9794E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +96,8 @@
 		0B984BE2182DC98400E9794E = {
 			isa = PBXGroup;
 			children = (
+				0B984C31182DD6D600E9794E /* LICENSE */,
+				0B984C32182DD6D600E9794E /* README.md */,
 				0B984BF0182DC98400E9794E /* LEXMusicKit */,
 				0B984C04182DC98500E9794E /* LEXMusicKitTests */,
 				0B984BED182DC98400E9794E /* Frameworks */,
@@ -110,8 +127,14 @@
 		0B984BF0182DC98400E9794E /* LEXMusicKit */ = {
 			isa = PBXGroup;
 			children = (
-				0B984BF3182DC98400E9794E /* LEXMusicKit.h */,
-				0B984BF5182DC98400E9794E /* LEXMusicKit.m */,
+				0B984C14182DC9AE00E9794E /* LEXMusicKit.h */,
+				0B984C15182DC9AE00E9794E /* LEXMKMode.h */,
+				0B984C16182DC9AE00E9794E /* LEXMKInterval.h */,
+				0B984C17182DC9AE00E9794E /* LEXMKInterval.c */,
+				0B984C18182DC9AE00E9794E /* LEXMKDegree.h */,
+				0B984C19182DC9AE00E9794E /* LEXMKDegree.c */,
+				0B984C1A182DC9AE00E9794E /* LEXMKDiatonicFunction.h */,
+				0B984C1B182DC9AE00E9794E /* LEXMKDiatonicFunction.c */,
 				0B984BF1182DC98400E9794E /* Supporting Files */,
 			);
 			path = LEXMusicKit;
@@ -128,7 +151,10 @@
 		0B984C04182DC98500E9794E /* LEXMusicKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				0B984C2A182DCE5F00E9794E /* LEXLog.h */,
 				0B984C0A182DC98500E9794E /* LEXMusicKitTests.m */,
+				0B984C2D182DD15500E9794E /* NSString+LEXMusicKit.h */,
+				0B984C2E182DD15500E9794E /* NSString+LEXMusicKit.m */,
 				0B984C05182DC98500E9794E /* Supporting Files */,
 			);
 			path = LEXMusicKitTests;
@@ -224,7 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B984BF6182DC98400E9794E /* LEXMusicKit.m in Sources */,
+				0B984C1C182DC9AE00E9794E /* LEXMKInterval.c in Sources */,
+				0B984C1E182DC9AE00E9794E /* LEXMKDegree.c in Sources */,
+				0B984C20182DC9AE00E9794E /* LEXMKDiatonicFunction.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +260,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B984C1F182DC9AE00E9794E /* LEXMKDegree.c in Sources */,
+				0B984C1D182DC9AE00E9794E /* LEXMKInterval.c in Sources */,
+				0B984C21182DC9AE00E9794E /* LEXMKDiatonicFunction.c in Sources */,
 				0B984C0B182DC98500E9794E /* LEXMusicKitTests.m in Sources */,
+				0B984C30182DD15500E9794E /* NSString+LEXMusicKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -322,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
