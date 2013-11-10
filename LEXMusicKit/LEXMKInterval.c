@@ -34,3 +34,28 @@ int LEXMKIntervalGetOctave(LEXMKInterval interval)
 {
     return interval / 12;
 }
+
+bool LEXMKIntervalIsConsonance(LEXMKInterval interval, bool * isPerfect)
+{
+    interval = interval % 12;
+    bool isConsonance = false;
+    if (interval == LEXMKIntervalPerfectUnison ||
+        interval == LEXMKIntervalPerfectFourth ||
+        interval == LEXMKIntervalPerfectFifth ||
+        interval == LEXMKIntervalPerfectOctave) {
+        if (isPerfect != NULL) {
+            *isPerfect = true;
+        }
+        isConsonance = true;
+    }
+    else if (interval == LEXMKIntervalMajorThird ||
+             interval == LEXMKIntervalMinorThird ||
+             interval == LEXMKIntervalMinorSixth ||
+             interval == LEXMKIntervalMajorSixth) {
+        isConsonance = true;
+        if (isPerfect != NULL) {
+            isPerfect = false;
+        }
+    }
+    return isConsonance;
+}
