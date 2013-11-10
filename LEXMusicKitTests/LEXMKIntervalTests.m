@@ -62,4 +62,30 @@
     }
 }
 
+- (void)testConsonancesAndDissonances
+{
+    LEXMKInterval interval;
+    bool isConsonance;
+    bool isPerfect;
+    
+    LEXMKInterval intervals [5] = {LEXMKIntervalPerfectUnison,
+        LEXMKIntervalPerfectOctave |
+        LEXMKIntervalPerfectFourth |
+        LEXMKIntervalPerfectFifth |
+        LEXMKIntervalPerfectUnison + 12 * 4};
+    for (int i = 0; i < 5; i++) {
+        interval = intervals[i];
+        isConsonance = LEXMKIntervalIsConsonance(interval, &isPerfect);
+        XCTAssertTrue(isConsonance && isPerfect, @"Knowingly consonance and perfect interval fail. Interval: %d, isConsonance: %@, isPerfect: %@", interval, isConsonance ? @"Y" : @"N", isPerfect ? @"Y" : @"N");
+    }
+    
+    interval = LEXMKIntervalMajorSixth;
+    isConsonance = LEXMKIntervalIsConsonance(interval, NULL);
+    XCTAssertTrue(isConsonance, @"Knowingly consonance should be consonance. Also function should have not any problem with passed NULL");
+    
+    isConsonance = LEXMKIntervalIsConsonance(LEXMKIntervalMajorSecond, &isPerfect);
+    XCTAssertFalse(isConsonance, @"Dissonance interval should defined as dissonance");
+    
+}
+
 @end
