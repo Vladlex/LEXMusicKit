@@ -9,6 +9,7 @@
 #ifndef iChord_LEXMKInterval_h
 #define iChord_LEXMKInterval_h
 
+#include <stdbool.h>
 
 enum  {
     // Simple intervals
@@ -36,5 +37,7 @@ LEXMKInterval LEXMKIntervalPitchIntervalClassMod6(int semitone1, int semitone2);
 LEXMKInterval LEXMKIntervalOctaveLimitedInvertedInterval(LEXMKInterval interval);
 
 int LEXMKIntervalGetOctave(LEXMKInterval interval);
+
+bool LEXMKIntervalIsConsonance(LEXMKInterval interval, bool * isPerfect);
 
 #endif
