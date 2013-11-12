@@ -22,7 +22,8 @@
 		0B984C21182DC9AE00E9794E /* LEXMKDiatonicFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C1B182DC9AE00E9794E /* LEXMKDiatonicFunction.c */; };
 		0B984C30182DD15500E9794E /* NSString+LEXMusicKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C2E182DD15500E9794E /* NSString+LEXMusicKit.m */; };
 		0B984C37182DFB2E00E9794E /* LEXMKIntervalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C36182DFB2E00E9794E /* LEXMKIntervalTests.m */; };
-		0B984CA81830F31700E9794E /* LEXMKChordScheme.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984CA71830F31700E9794E /* LEXMKChordScheme.c */; };
+		0B984CAB18311ADB00E9794E /* LEXMKIntervalArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984CAA18311ADB00E9794E /* LEXMKIntervalArray.c */; };
+		0B984CAD18312BC300E9794E /* LEXMKIntervalArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984CAC18312BC300E9794E /* LEXMKIntervalArrayTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +72,9 @@
 		0B984C34182DDB8300E9794E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		0B984C35182DE1CF00E9794E /* LEXMusicKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LEXMusicKit-Prefix.pch"; sourceTree = "<group>"; };
 		0B984C36182DFB2E00E9794E /* LEXMKIntervalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEXMKIntervalTests.m; sourceTree = "<group>"; };
-		0B984CA61830F2F000E9794E /* LEXMKChordScheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEXMKChordScheme.h; sourceTree = "<group>"; };
-		0B984CA71830F31700E9794E /* LEXMKChordScheme.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LEXMKChordScheme.c; sourceTree = "<group>"; };
+		0B984CA918311ACE00E9794E /* LEXMKIntervalArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEXMKIntervalArray.h; sourceTree = "<group>"; };
+		0B984CAA18311ADB00E9794E /* LEXMKIntervalArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LEXMKIntervalArray.c; sourceTree = "<group>"; };
+		0B984CAC18312BC300E9794E /* LEXMKIntervalArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEXMKIntervalArrayTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +142,8 @@
 				0B984C19182DC9AE00E9794E /* LEXMKDegree.c */,
 				0B984C1A182DC9AE00E9794E /* LEXMKDiatonicFunction.h */,
 				0B984C1B182DC9AE00E9794E /* LEXMKDiatonicFunction.c */,
-				0B984CA61830F2F000E9794E /* LEXMKChordScheme.h */,
-				0B984CA71830F31700E9794E /* LEXMKChordScheme.c */,
+				0B984CA918311ACE00E9794E /* LEXMKIntervalArray.h */,
+				0B984CAA18311ADB00E9794E /* LEXMKIntervalArray.c */,
 				0B984BF1182DC98400E9794E /* Supporting Files */,
 			);
 			path = LEXMusicKit;
@@ -162,6 +164,7 @@
 				0B984C2E182DD15500E9794E /* NSString+LEXMusicKit.m */,
 				0B984C2A182DCE5F00E9794E /* LEXLog.h */,
 				0B984C36182DFB2E00E9794E /* LEXMKIntervalTests.m */,
+				0B984CAC18312BC300E9794E /* LEXMKIntervalArrayTests.m */,
 				0B984C0A182DC98500E9794E /* LEXMKDiatonicFunctionTests.m */,
 				0B984C05182DC98500E9794E /* Supporting Files */,
 			);
@@ -258,8 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B984CAB18311ADB00E9794E /* LEXMKIntervalArray.c in Sources */,
 				0B984C1C182DC9AE00E9794E /* LEXMKInterval.c in Sources */,
-				0B984CA81830F31700E9794E /* LEXMKChordScheme.c in Sources */,
 				0B984C1E182DC9AE00E9794E /* LEXMKDegree.c in Sources */,
 				0B984C20182DC9AE00E9794E /* LEXMKDiatonicFunction.c in Sources */,
 			);
@@ -272,6 +275,7 @@
 				0B984C1F182DC9AE00E9794E /* LEXMKDegree.c in Sources */,
 				0B984C1D182DC9AE00E9794E /* LEXMKInterval.c in Sources */,
 				0B984C21182DC9AE00E9794E /* LEXMKDiatonicFunction.c in Sources */,
+				0B984CAD18312BC300E9794E /* LEXMKIntervalArrayTests.m in Sources */,
 				0B984C0B182DC98500E9794E /* LEXMKDiatonicFunctionTests.m in Sources */,
 				0B984C37182DFB2E00E9794E /* LEXMKIntervalTests.m in Sources */,
 				0B984C30182DD15500E9794E /* NSString+LEXMusicKit.m in Sources */,
