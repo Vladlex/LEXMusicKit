@@ -5,10 +5,10 @@
 //  Copyright (c) 2013 Alexei Gordeed
 //  MIT Licese: http://opensource.org/licenses/MIT//
 
-#include <stdbool.h>
-
 #ifndef LEXMKDegree_h
 #define LEXMKDegree_h
+
+#include <stdbool.h>
 
 enum  {
     LEXMKDegreeTonic = 0,        // (T)
