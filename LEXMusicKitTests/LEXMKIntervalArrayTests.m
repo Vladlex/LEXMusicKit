@@ -30,42 +30,36 @@
 
 - (void)testIntervalArrayCreation
 {
-    LEXMKIntervalArray array;
-    {
-        LEXMKInterval intervals[3] = {LEXMKIntervalPerfectUnison, LEXMKIntervalMinorThird, LEXMKIntervalPerfectFifth};
-        array = LEXMKIntervalArrayCreateWithIntervals(intervals,
-                                                      3,
-                                                      false);
-    }
-    XCTAssertFalse(array.isRelated, @"Array created with false 'isRealted' parameter should have false value for 'isRelated'");
-    XCTAssertTrue(array.intervals[0] == LEXMKIntervalPerfectUnison, @"Array should have right intervals. Expected %d, but it's %d", LEXMKIntervalPerfectUnison, array.intervals[0]);
-    XCTAssertTrue(array.intervals[1] == LEXMKIntervalMinorThird, @"Array should have right intervals. Expected %d, but it's %d", LEXMKIntervalMinorThird, array.intervals[1]);
-    XCTAssertTrue(array.intervals[2] == LEXMKIntervalPerfectFifth, @"Array should have right intervals. Expected %d, but it's %d", LEXMKIntervalPerfectFifth, array.intervals[2]);
-    XCTAssertTrue(array.length == 3, @"Array should have right length");
+    LEXMKIntervalArrayRef array = malloc(sizeof(LEXMKIntervalArrayRef));
+    LEXMKIntervalArrayInit(array);
     
-    {
-        LEXMKIntervalArray otherArray = LEXMKIntervalArrayCreateByAddingIntervalToArray(array, LEXMKIntervalMinorSixth);
-        LEXMKIntervalArrayDestroy(array);
-        array = otherArray;
-    }
-    XCTAssertTrue(array.length == 4, @"Array created by adding interval should have right length");
-    XCTAssertTrue(array.intervals[2] == LEXMKIntervalPerfectFifth, @"Array created by adding array should have right old interval at the right index. Expected %d, but it's %d", LEXMKIntervalPerfectFifth, array.intervals[2]);
-    XCTAssertTrue(array.intervals[3] == LEXMKIntervalMinorSixth, @"Array created by adding interval should have right interval at the right index. Expected %d, but it's %d", LEXMKIntervalMinorSixth, array.intervals[3]);
+    LEXMKInterval *intervals;
+    unsigned int length;
+    LEXMKIntervalArrayGetIntervals(array, &intervals, &length);
+    XCTAssert(intervals == NULL, @"In inited array intervals should be NULL");
+    XCTAssert(length == 0, @"Array of inited array should be 0 but it's %u", length);
     
-    {
-        LEXMKInterval *intervals = malloc(sizeof(LEXMKInterval) * 3);
-        intervals[0] = LEXMKIntervalMinorSecond;
-        intervals[1] = LEXMKIntervalMinorSeventh;
-        intervals[2] = LEXMKIntervalMajorSeventh;
-        LEXMKIntervalArray otherArray = LEXMKIntervalArrayCreateByAddingIntervalsToArray(array,
-                                                                                         intervals,
-                                                                                         3);
-        LEXMKIntervalArrayDestroy(array);
-        array = otherArray;
-    }
-    XCTAssertTrue(array.length == 7, @"Array created by adding intervals should have right length");
-    XCTAssertTrue(array.intervals[6] == LEXMKIntervalMajorSeventh, @"Array created by adding intervals should have right interval at the right index");
+    LEXMKIntervalArrayDestroy(array);
     
+    length = 6;
+    intervals = malloc(sizeof(LEXMKInterval) * length);
+    for (int i = 0; i < length; i++) {
+        intervals[i] = i;
+    }
+    array = LEXMKIntervalArrayCreateWithIntervals(intervals,
+                                                  length,
+                                                  true);
+    free(intervals);
+    LEXMKIntervalArrayGetIntervals(array, &intervals, NULL);
+    
+    BOOL allIntervalsAreValid = YES;
+    for (int i = 0; i < length; i ++) {
+        if (intervals[i]!=i) {
+            allIntervalsAreValid = NO;
+            break;
+        }
+    }
+    XCTAssertTrue(allIntervalsAreValid, @"Some of interval is wrong");
     LEXMKIntervalArrayDestroy(array);
 }
 
