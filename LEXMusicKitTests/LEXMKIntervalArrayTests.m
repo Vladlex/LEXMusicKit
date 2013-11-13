@@ -32,11 +32,7 @@
 {
     LEXMKIntervalArray array;
     {
-//        LEXMKInterval intervals[3] = {LEXMKIntervalPerfectUnison, LEXMKIntervalMinorThird, LEXMKIntervalPerfectFifth};
-        LEXMKInterval *intervals = malloc(sizeof(LEXMKInterval) * 3);
-        intervals[0] = LEXMKIntervalPerfectUnison;
-        intervals[1] = LEXMKIntervalMinorThird;
-        intervals[2] = LEXMKIntervalPerfectFifth;
+        LEXMKInterval intervals[3] = {LEXMKIntervalPerfectUnison, LEXMKIntervalMinorThird, LEXMKIntervalPerfectFifth};
         array = LEXMKIntervalArrayCreateWithIntervals(intervals,
                                                       3,
                                                       false);
