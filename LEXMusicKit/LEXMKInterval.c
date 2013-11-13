@@ -7,11 +7,12 @@
 //  MIT Licese: http://opensource.org/licenses/MIT//
 
 
-#include "LEXMKInterval.h"
-
 #include <stdlib.h>
 #include <math.h>
 #include <limits.h>
+
+#include "LEXMKInterval.h"
+
 
 #define LEXMKMAX(A, B) ((A) < (B) ? (B) : (A))
 
