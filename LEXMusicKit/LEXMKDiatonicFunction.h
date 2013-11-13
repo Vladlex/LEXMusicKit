@@ -12,6 +12,7 @@
 #define LEXMKDiatonicFunction_h
 
 #include <stdbool.h>
+
 #include "LEXMKMode.h"
 
 #define LEXMKDFuncMake(i1,i2,i3,i4,i5,i6,i7) LEXMKDiatonicFunctionMakeWithIntervals(i1,i2,i3,i4,i5,i6,i7)
