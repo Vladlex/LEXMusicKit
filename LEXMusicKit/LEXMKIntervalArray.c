@@ -42,31 +42,6 @@ int LEXMKIntervalArrayInit(LEXMKIntervalArrayRef array)
 }
 
 
-/*  --- === Creating === --- */
-
-LEXMKIntervalArrayRef LEXMKIntervalArrayCreate()
-{
-    LEXMKIntervalArrayRef array = malloc(sizeof(LEXMKIntervalArray));
-    LEXMKIntervalArrayInit(array);
-    return array;
-}
-
-LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithIntervals(LEXMKInterval * intervals, unsigned int length, bool isRelated)
-{
-    LEXMKIntervalArrayRef array = malloc(sizeof(LEXMKIntervalArray));
-    if (intervals != NULL) {
-        size_t size = sizeof(LEXMKInterval) * length;
-        array->intervals = malloc(size);
-        memcpy(array->intervals, intervals, size);
-    }
-    else {
-        array->intervals = NULL;
-    }
-    array->length = length;
-    array->isRelated = isRelated;
-    return array;
-}
-
 /*  --- === Accessors === --- */
 
 int LEXMKIntervalArrayGetIntervals(LEXMKIntervalArrayRef array, LEXMKInterval ** outIntervals, unsigned int *outLength)
@@ -89,3 +64,57 @@ bool LEXMKIntervalArrayGetIsRelative(LEXMKIntervalArrayRef array)
 {
     return array->isRelated;
 }
+
+bool LEXMKIntervalArrayIsEmpty(LEXMKIntervalArrayRef array)
+{
+    return (array->length == 0);
+}
+
+/*  --- === Creating === --- */
+
+LEXMKIntervalArrayRef LEXMKIntervalArrayCreate()
+{
+    return LEXMKIntervalArrayCreateWithIntervals(NULL, 0, true);
+}
+
+LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithIntervals(LEXMKInterval * intervals,
+                                                            unsigned int length,
+                                                            bool isRelated)
+{
+    LEXMKIntervalArrayRef array = malloc(sizeof(LEXMKIntervalArray));
+    if (intervals != NULL) {
+        size_t size = sizeof(LEXMKInterval) * length;
+        array->intervals = malloc(size);
+        memcpy(array->intervals, intervals, size);
+    }
+    else {
+        array->intervals = NULL;
+    }
+    array->length = length;
+    array->isRelated = isRelated;
+    return array;
+}
+
+LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByAddingIntervalToArray(LEXMKIntervalArrayRef srcArray,
+                                                                      LEXMKInterval interval)
+{
+    LEXMKIntervalArrayRef resultArray;
+    unsigned int resultLength;
+    
+    
+    resultArray = malloc(sizeof(LEXMKIntervalArrayRef));
+    resultLength = srcArray->length + 1;
+    
+    if (srcArray->length > 0) {
+        
+    }
+}
+
+LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByAddingIntervalsToArray(LEXMKIntervalArrayRef srcArray,
+                                                                       LEXMKInterval *intervals,
+                                                                       unsigned int length)
+{
+    
+}
+
+LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByUnionIntervalArrays(LEXMKIntervalArrayRef * arrays, unsigned int length);

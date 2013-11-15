@@ -42,7 +42,7 @@ int LEXMKIntervalArrayInit(LEXMKIntervalArrayRef array);
 
 /**
 	Let you know intervals
-	@param array Array with needed intervals
+	@param array Array with needed intervals. This parameter should not be NULL.
 	@param intervals Array intervals. May be Null.
 	@param length Array intervals length. May be Null.
 	@returns EXIT_SUCCESS if all ok.
@@ -51,24 +51,31 @@ int LEXMKIntervalArrayGetIntervals(LEXMKIntervalArrayRef array, LEXMKInterval **
 
 /**
 	Returns array length.
-	@param array Array which length you want to know.
+	@param array Array which length you want to know. This parameter should not be NULL.
 	@returns Array length.
  */
 unsigned int LEXMKIntervalArrayGetLength(LEXMKIntervalArrayRef array);
 
 /**
 	Returns bool value which means if containing intervals are relative to each other.
-	@param array Array which intervals relation you want to know.
+	@param array Array which intervals relation you want to know. This paramter should not be NULL.
 	@returns 'true' if intervals are positioned relatively to each other ot 'false' if intervals are positioned relatively by an anstract zero point.
  */
 bool LEXMKIntervalArrayGetIsRelative(LEXMKIntervalArrayRef array);
 
 
+/**
+ Check if given array is empty.
+ @param array Array to check.
+ @returns 'true' if arra have not element and it's length is 0.
+ */
+bool LEXMKIntervalArrayIsEmpty(LEXMKIntervalArrayRef array);
+
 /*   --- === Creating arrays === --- */
 
 /**
 	Returns created LEXMKInterval instance.
-	@param intervals An existing intervals vector with valid length. This vector will be copied.
+	@param intervals An existing intervals vector with valid length. This vector copying.
 	@param length Length of the intervals vector.
 	@param isRelated Are given intervals positioned relative each other.
     @warning You're responsible to destroy created array using 'LEXMKIntervalArrayRefDestroy'.
@@ -78,7 +85,7 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithIntervals(LEXMKInterval * inte
 
 /**
     Returns created interval array with copied intervals of another array appended by given interval.
-	@param array Source array which interval.
+	@param array Source array which interval. This parameter should not be NULL.
 	@param interval Interval which should be added to array at last position.
     @warning You're responsible to destroy created array using 'LEXMKIntervalArrayRefDestroy'.
 	@returns LEXMKIntervalArrayRef instance.
@@ -87,7 +94,7 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByAddingIntervalToArray(LEXMKInter
 
 /**
 	Returns created interval array with intervals
-	@param array Source array
+	@param array Source array. This parameter should not be NULL.
 	@param intervals Intervals which should be added to created array after source interval array intervals.
  May be NULL (length should be 0 though).
 	@param length Length of the intervals vector. May be 0 (intervals should be NULL though).
@@ -98,7 +105,7 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByAddingIntervalsToArray(LEXMKInte
 
 /**
 	Returns LEXMKIntervalArrayRef containing all of given interval array intervals.
-	@param arrays Vector of LEXMKIntervalArrayRef instances.
+	@param arrays Vector of LEXMKIntervalArrayRef instances. This parameter should be NULL.
     @param length Length of arrays vecotr.
     @warning You're responsible to destroy created array using 'LEXMKIntervalArrayRefDestroy'.
     @warning All arrays should have same isRealated value!
@@ -117,12 +124,6 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByUnionIntervalArrays(LEXMKInterva
  */
 bool LEXMKIntervalArrayIsEqual(LEXMKIntervalArrayRef array1, LEXMKIntervalArrayRef array2);
 
-/**
-    Check if given array is empty.
-    @param array Array to check.
-    @returns 'true' if arra have not element and it's length is 0.
- */
-bool LEXMKIntervalArrayIsEmpty(LEXMKIntervalArrayRef array);
 
 
 /*  --- === Array modifying operations === --- */
