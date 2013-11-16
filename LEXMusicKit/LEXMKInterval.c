@@ -65,3 +65,18 @@ bool LEXMKIntervalIsEqualIngnoringOctaves(LEXMKInterval interval1, LEXMKInterval
 {
     return (interval1 % 12 == interval2 % 12);
 }
+
+int LEXMKIntervalCompare(LEXMKInterval interval1, LEXMKInterval interval2)
+{
+    return interval1 - interval2;
+}
+
+int LEXMKIntervalCompareForQSort(const void *arg1, const void *arg2)
+{
+    return LEXMKIntervalCompare(*(LEXMKInterval *)arg1, *(LEXMKInterval *)arg2);
+}
+
+void LEXMKIntervalSortIntervals(LEXMKInterval * intervals, unsigned int length)
+{
+    qsort(intervals, length, sizeof(LEXMKInterval), LEXMKIntervalCompareForQSort);
+}

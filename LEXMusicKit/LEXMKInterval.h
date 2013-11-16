@@ -42,4 +42,8 @@ bool LEXMKIntervalIsConsonance(LEXMKInterval interval, bool * isPerfect);
 
 bool LEXMKIntervalIsEqualIngnoringOctaves(LEXMKInterval interval1, LEXMKInterval interval2);
 
+int LEXMKIntervalCompare(LEXMKInterval interval1, LEXMKInterval interval2);
+
+void LEXMKIntervalSortIntervals(LEXMKInterval * intervals, unsigned int length);
+
 #endif
