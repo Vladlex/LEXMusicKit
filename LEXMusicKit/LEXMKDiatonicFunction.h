@@ -29,7 +29,7 @@ LEXMKDiatonicFunction LEXMKDiatonicFunctionMakeWithIntervalVector(const int * in
 
 /** Easy way to create diatonic functions by mode.
  @param LEXMusicMode An mode constant. See valid constants in LEXMusicMode enum.
- @return An usable LEXMKDiatonicFunction variable in case of valid mode and LEXMKDiatonicFunctionNull if mode unknown.
+ @returns An usable LEXMKDiatonicFunction variable in case of valid mode and LEXMKDiatonicFunctionNull if mode unknown.
  */
 LEXMKDiatonicFunction LEXMKDiatonicFunctionMakeWithMode(LEXMKMode mode);
 
@@ -39,7 +39,7 @@ bool LEXMKDiatonicFunctionIsEqualToFunction(LEXMKDiatonicFunction func1, LEXMKDi
 
 /** Validate function. Valid function elements sum should be always equal to 12 (number of halftones in scale).
  @param function An LEXMKDiatonicFunction variable to validate.
- @return YES if function is valid.
+ @returns YES if function is valid.
  */
 bool LEXMKDiatonicFunctionIsValid(LEXMKDiatonicFunction function);
 
