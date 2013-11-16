@@ -40,6 +40,8 @@ int LEXMKIntervalArrayInit(LEXMKIntervalArrayRef array);
 
 /* --- === Accessors === --- */
 
+LEXMKInterval * LEXMKIntervalArrayGetIntervals(LEXMKIntervalArrayRef array);
+
 /**
 	Let you know intervals
 	@param array Array with needed intervals. This parameter should not be NULL.
@@ -47,7 +49,7 @@ int LEXMKIntervalArrayInit(LEXMKIntervalArrayRef array);
 	@param length Array intervals length. May be Null.
 	@returns EXIT_SUCCESS if all ok.
  */
-int LEXMKIntervalArrayGetIntervals(LEXMKIntervalArrayRef array, LEXMKInterval ** outIntervals, unsigned int *outLength);
+int LEXMKIntervalArrayGetIntervalsAndLength(LEXMKIntervalArrayRef array, LEXMKInterval ** outIntervals, unsigned int *outLength);
 
 /**
 	Returns array length.
@@ -63,15 +65,16 @@ unsigned int LEXMKIntervalArrayGetLength(LEXMKIntervalArrayRef array);
  */
 bool LEXMKIntervalArrayGetIsRelative(LEXMKIntervalArrayRef array);
 
-
 /**
  Check if given array is empty.
  @param array Array to check.
- @returns 'true' if arra have not element and it's length is 0.
+ @returns 'true' if array does not has elements and it's length is 0.
  */
 bool LEXMKIntervalArrayIsEmpty(LEXMKIntervalArrayRef array);
 
 /*   --- === Creating arrays === --- */
+
+LEXMKIntervalArrayRef LEXMKIntervalArrayCreate();
 
 /**
 	Returns created LEXMKInterval instance.
@@ -103,17 +106,6 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByAddingIntervalToArray(LEXMKInter
  */
 LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByAddingIntervalsToArray(LEXMKIntervalArrayRef array, LEXMKInterval *intervals, unsigned int length);
 
-/**
-	Returns LEXMKIntervalArrayRef containing all of given interval array intervals.
-	@param arrays Vector of LEXMKIntervalArrayRef instances. This parameter should be NULL.
-    @param length Length of arrays vecotr.
-    @warning You're responsible to destroy created array using 'LEXMKIntervalArrayRefDestroy'.
-    @warning All arrays should have same isRealated value!
-	@returns LEXMKIntervalArrayRef instance or LEXMKIntervalArrayRefNull if something wrong.
- */
-LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByUnionIntervalArrays(LEXMKIntervalArrayRef * arrays, unsigned int length);
-
-
 /*  --- === Array comparison === --- */
 
 /**
@@ -125,19 +117,18 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByUnionIntervalArrays(LEXMKInterva
 bool LEXMKIntervalArrayIsEqual(LEXMKIntervalArrayRef array1, LEXMKIntervalArrayRef array2);
 
 
-
 /*  --- === Array modifying operations === --- */
 /**
 	Search for repeating intervals and remove them.
 	@param array Array which repeating intervals should be removed.
-    @returns 0 if all Ok.
+    @returns EXIT_SUCCESS if all Ok.
  */
 int LEXMKIntervalArrayRemoveRepeatingIntervals(LEXMKIntervalArrayRef array);
 
 /**
 	Search for repeating intervals ignoring intervals octave. As intancse unison and octave will be the same interval.
 	@param array Array which repeating intervals will be removed.
-	@returns 0 if all Ok.
+	@returns EXIT_SUCCESS if all Ok.
  */
 int LEXMKIntervalArrayRemoveRepeatingIntervalsIgnoringOctaves(LEXMKIntervalArrayRef array);
 
@@ -145,32 +136,37 @@ int LEXMKIntervalArrayRemoveRepeatingIntervalsIgnoringOctaves(LEXMKIntervalArray
 	Adds interval to array.
 	@param array Array which should be appended by interval.
 	@param interval An interval which should be added to array.
-	@returns 0 if all Ok.
+	@returns EXIT_SUCCESS if all Ok.
  */
 int LEXMKIntervalArrayAddInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
 
 /**
- Adds intervals to array.
- @param array Array which should be appended by intervals.
- @param interval An interval vector which should be added to array.
- @param length Adding interval vector length.
- @returns EXIT_SUCCESS if all Ok.
+    Adds intervals to array.
+    @param array Array which should be appended by intervals.
+    @param interval An interval vector which should be added to array.
+    @param length Adding interval vector length.
+    @returns EXIT_SUCCESS if all Ok.
  */
 int LEXMKIntervalArrayAddIntervals(LEXMKIntervalArrayRef array, LEXMKInterval *intervals, unsigned int length);
 
 /**
-	Inserts interval to array.
-	@param array Array which should be appended by interval.
-	@param interval An interval which chould be inserted to array.
-	@param position Desired position of inserting interval.
-	@returns 0 if all Ok. -2 if index is wrong.
+ Inserts interval to array.
+ @param array Array which should be appended by interval.
+ @param interval An interval which chould be inserted to array.
+ @param position Desired position of inserting interval.
+ @returns EXIT_SUCCESS if all Ok. -2 if index is wrong.
  */
 int LEXMKIntervalArrayInsertIntervalAtIndex(LEXMKIntervalArrayRef array, LEXMKInterval interval, unsigned int position);
 
-int LEXMKIntervalArrayRefRemoveInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
+int LEXMKIntervalArrayRemoveInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
+int LEXMKIntervalArrayRemoveIntervalAtIndex(unsigned int idx);
+int LEXMKIntervalArrayRemoveIntervalsAtIndexes(unsigned int * indexes, unsigned int length);
+
+
 bool LEXMKIntervalArrayRefHasInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
  int LEXMKIntervalArrayRefIndexOfInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
 int  LEXMKIntervalArrayRefIndexesOfInterval(LEXMKIntervalArrayRef array, unsigned int ** intervalIndexes, unsigned int * length);
-int LEXMKIntervalArrayRefOrderIntervals(LEXMKIntervalArrayRef array);
+int LEXMKIntervalArrayRefSortIntervals(LEXMKIntervalArrayRef array);
+int LEXMKIntervalArrayEnumerateUsingFunction(LEXMKIntervalArrayRef array, bool (*)(LEXMKInterval));
 
 #endif
