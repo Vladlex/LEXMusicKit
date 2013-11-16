@@ -40,4 +40,6 @@ int LEXMKIntervalGetOctave(LEXMKInterval interval);
 
 bool LEXMKIntervalIsConsonance(LEXMKInterval interval, bool * isPerfect);
 
+bool LEXMKIntervalIsEqualIngnoringOctaves(LEXMKInterval interval1, LEXMKInterval interval2);
+
 #endif

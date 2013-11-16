@@ -60,3 +60,8 @@ bool LEXMKIntervalIsConsonance(LEXMKInterval interval, bool * isPerfect)
     }
     return isConsonance;
 }
+
+bool LEXMKIntervalIsEqualIngnoringOctaves(LEXMKInterval interval1, LEXMKInterval interval2)
+{
+    return (interval1 % 12 == interval2 % 12);
+}
