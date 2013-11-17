@@ -162,6 +162,23 @@ bool LEXMKIntervalArrayIsEqual(LEXMKIntervalArrayRef array1, LEXMKIntervalArrayR
 
 /*  --- === Modify Arrays === --- */
 
+int LEXMKIntervalArrayInsertIntervalAtIndex(LEXMKIntervalArrayRef array, LEXMKInterval interval, unsigned int idx)
+{
+    if (array == NULL || idx > array->length) {
+        return EXIT_FAILURE;
+    }
+    LEXMKInterval *intervals = array->intervals;
+    unsigned int length = array->length + 1;
+    intervals = realloc(intervals, sizeof(LEXMKInterval) * length);
+    for (int i = length - 1; i > idx; i++) {
+        intervals[i] = intervals[i - 1];
+    }
+    intervals[idx] = interval;
+    array->intervals = intervals;
+    array->length = length;
+    return EXIT_SUCCESS;
+}
+
 int LEXMKIntervalArrayRemoveIntervalsAtIndexes(unsigned int * indexes, unsigned int length)
 {
     

@@ -154,9 +154,9 @@ int LEXMKIntervalArrayAddIntervals(LEXMKIntervalArrayRef array, LEXMKInterval *i
  @param array Array which should be appended by interval.
  @param interval An interval which chould be inserted to array.
  @param position Desired position of inserting interval.
- @returns EXIT_SUCCESS if all Ok. -2 if index is wrong.
+ @returns EXIT_SUCCESS if all Ok.
  */
-int LEXMKIntervalArrayInsertIntervalAtIndex(LEXMKIntervalArrayRef array, LEXMKInterval interval, unsigned int position);
+int LEXMKIntervalArrayInsertIntervalAtIndex(LEXMKIntervalArrayRef array, LEXMKInterval interval, unsigned int idx);
 
 int LEXMKIntervalArrayRemoveInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
 int LEXMKIntervalArrayRemoveIntervalAtIndex(unsigned int idx);
