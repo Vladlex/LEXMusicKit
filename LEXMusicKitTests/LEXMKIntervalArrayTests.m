@@ -85,4 +85,41 @@
     LEXMKIntervalArrayDestroy(rsltArray);
 }
 
+- (void)testIntervalArrayIntervalInserting
+
+{
+    LEXMKIntervalArrayRef array;
+    LEXMKInterval *intervals;
+    int funcExit = -1;
+    
+    
+    // 1. Null array;
+    array = NULL;
+    intervals = malloc(sizeof(LEXMKInterval));
+    intervals[0] = LEXMKIntervalPerfectFourth;
+    funcExit = LEXMKIntervalArrayInsertIntervalAtIndex(array, intervals[0], 0);
+    XCTAssert(funcExit == EXIT_FAILURE, @"Expeting failure when inserting interval to null array");
+    
+    // 2. One-element array (inserting at the last index)
+    
+    array = LEXMKIntervalArrayCreateWithIntervals(intervals, 1, true);
+    free(intervals);
+    funcExit = LEXMKIntervalArrayInsertIntervalAtIndex(array,
+                                                       LEXMKIntervalPerfectFifth,
+                                                       1);
+    XCTAssert(funcExit == EXIT_SUCCESS, @"Expecting successfully function completion");
+    unsigned int length = LEXMKIntervalArrayGetLength(array);
+    XCTAssert(length == 2, @"Expecting array length %u, but it's %u", 2, length);
+    intervals = LEXMKIntervalArrayGetIntervals(array);
+    XCTAssert(intervals != NULL, @"Expecting non-null intervals afterr inserting interval to array");
+    XCTAssert(intervals[0] == LEXMKIntervalPerfectFourth, @"Expecting first intervals array element to be %d, but it's %d", LEXMKIntervalPerfectFourth, intervals[0]);
+    XCTAssert(intervals[1] == LEXMKIntervalPerfectFifth, @"Expecting second intervals array element to be %d, but it's %d", LEXMKIntervalPerfectFifth, intervals[1]);
+    
+    funcExit = LEXMKIntervalArrayInsertIntervalAtIndex(array, LEXMKIntervalPerfectOctave, 5);
+    length = LEXMKIntervalArrayGetLength(array);
+    XCTAssertTrue(funcExit == EXIT_FAILURE, @"Expecting failure when inserting interval at non-exists index %u to array with length %u", 5, length);
+    LEXMKIntervalArrayDestroy(array);
+    
+}
+
 @end
