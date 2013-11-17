@@ -118,19 +118,6 @@ bool LEXMKIntervalArrayIsEqual(LEXMKIntervalArrayRef array1, LEXMKIntervalArrayR
 
 
 /*  --- === Array modifying operations === --- */
-/**
-	Search for repeating intervals and remove them.
-	@param array Array which repeating intervals should be removed.
-    @returns EXIT_SUCCESS if all Ok.
- */
-int LEXMKIntervalArrayRemoveRepeatingIntervals(LEXMKIntervalArrayRef array);
-
-/**
-	Search for repeating intervals ignoring intervals octave. As intancse unison and octave will be the same interval.
-	@param array Array which repeating intervals will be removed.
-	@returns EXIT_SUCCESS if all Ok.
- */
-int LEXMKIntervalArrayRemoveRepeatingIntervalsIgnoringOctaves(LEXMKIntervalArrayRef array);
 
 /**
 	Adds interval to array.
@@ -141,15 +128,6 @@ int LEXMKIntervalArrayRemoveRepeatingIntervalsIgnoringOctaves(LEXMKIntervalArray
 int LEXMKIntervalArrayAddInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
 
 /**
-    Adds intervals to array.
-    @param array Array which should be appended by intervals.
-    @param interval An interval vector which should be added to array.
-    @param length Adding interval vector length.
-    @returns EXIT_SUCCESS if all Ok.
- */
-int LEXMKIntervalArrayAddIntervals(LEXMKIntervalArrayRef array, LEXMKInterval *intervals, unsigned int length);
-
-/**
  Inserts interval to array.
  @param array Array which should be appended by interval.
  @param interval An interval which chould be inserted to array.
@@ -158,15 +136,5 @@ int LEXMKIntervalArrayAddIntervals(LEXMKIntervalArrayRef array, LEXMKInterval *i
  */
 int LEXMKIntervalArrayInsertIntervalAtIndex(LEXMKIntervalArrayRef array, LEXMKInterval interval, unsigned int idx);
 
-int LEXMKIntervalArrayRemoveInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
-int LEXMKIntervalArrayRemoveIntervalAtIndex(unsigned int idx);
-int LEXMKIntervalArrayRemoveIntervalsAtIndexes(unsigned int * indexes, unsigned int length);
-
-
-bool LEXMKIntervalArrayRefHasInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
- int LEXMKIntervalArrayRefIndexOfInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
-int  LEXMKIntervalArrayRefIndexesOfInterval(LEXMKIntervalArrayRef array, unsigned int ** intervalIndexes, unsigned int * length);
-int LEXMKIntervalArrayRefSortIntervals(LEXMKIntervalArrayRef array);
-int LEXMKIntervalArrayEnumerateUsingFunction(LEXMKIntervalArrayRef array, bool (*)(LEXMKInterval));
 
 #endif

@@ -179,9 +179,10 @@ int LEXMKIntervalArrayInsertIntervalAtIndex(LEXMKIntervalArrayRef array, LEXMKIn
     return EXIT_SUCCESS;
 }
 
-int LEXMKIntervalArrayRemoveIntervalsAtIndexes(unsigned int * indexes, unsigned int length)
+int LEXMKIntervalArrayAddInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval)
 {
-    
-    return EXIT_SUCCESS;
+    return LEXMKIntervalArrayInsertIntervalAtIndex(array,
+                                                   interval,
+                                                   array->length);
 }
 
