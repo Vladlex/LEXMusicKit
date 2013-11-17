@@ -69,9 +69,100 @@ LEXMKInterval *LEXMKChordSchemeGetIntervals(LEXMKChordSchemeRef scheme, bool isR
     return NULL;
 }
 
-LEXMKIntervalArrayRef LEXMKChordSchemeGetIntervalArray(LEXMKChordSchemeRef scheme, bool isRelated)
+LEXMKInterval * LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordMode mode, int susVal, unsigned int *outLength)
 {
+    bool canContinue = true;
+    unsigned int length;
     
-    return NULL;
+    LEXMKInterval triad2interval;
+    LEXMKInterval triad3interval;
+    switch (susVal) {
+        case LEXMKchordSus2:     // Sus2
+            triad2interval = LEXMKIntervalMajorSecond;
+            break;
+        case LEXMKchordSus4:     // Sus4
+            triad2interval = LEXMKIntervalPerfectFourth;
+            break;
+        default:
+            triad2interval = 0;
+            break;
+    }
+    
+    switch (mode) {
+        case LEXMKChordModeMajor:
+            if (triad2interval == 0) {
+                triad2interval = LEXMKIntervalMajorThird;
+            }
+            triad3interval = LEXMKIntervalPerfectFifth;
+            break;
+        case LEXMKChordModeMinor:
+            if (triad2interval == 0) {
+                triad2interval = LEXMKIntervalMinorThird;
+            }
+            triad3interval = LEXMKIntervalPerfectFifth;
+            break;
+        case LEXMKChordModeAug:
+            triad2interval = LEXMKIntervalMajorThird;
+            triad3interval = triad2interval + LEXMKIntervalMajorThird;
+            break;
+        case LEXMKChordModeDim:
+            triad2interval = LEXMKIntervalMinorThird;
+            triad3interval = LEXMKIntervalMinorThird;
+            break;
+        default:
+            canContinue = false;
+            break;
+    }
+    if (!canContinue){
+        if (outLength) {
+            *outLength = 0;
+        }
+        return NULL;
+    }
+    
+    LEXMKInterval *intervals;
+    if (mode == LEXMKChordModeDim) {
+        length = 3;
+        intervals = malloc(sizeof(LEXMKInterval) * length);
+        intervals[2] = triad3interval + LEXMKIntervalMinorThird;
+    }
+    else {
+        length = 2;
+        intervals = malloc(sizeof(LEXMKInterval) * length);
+    }
+    if (outLength) {
+        *outLength = length;
+    }
+    intervals[0] = triad2interval;
+    intervals[1] = triad3interval;
+    return intervals;
+}
+
+LEXMKIntervalArrayRef LEXMKChordSchemeGetIntervalArray(LEXMKChordSchemeRef scheme,
+                                                       LEXMKChordOpt **outUnrecognizedOpts,
+                                                       unsigned int * outUnrecognizedOptsLength)
+{
+    LEXMKChordOpt * opts = scheme->opts;
+    unsigned int optsLength = scheme->optsLength;
+    int susVal = -1;
+    for (int i = 0; i < optsLength; i ++) {
+        LEXMKChordOpt opt = opts[i];
+        if (opt.type == LEXMKChordOptTypeSus) {
+            susVal = opt.info;
+            break;
+        }
+    }
+    
+    LEXMKInterval *intervals;
+    unsigned int length;
+    intervals = LEXMKIntervalCreateIntervalsForModeAndSusVal(scheme->mode,
+                                                       susVal,
+                                                       &length);
+    // many other thing should be done
+    
+    LEXMKIntervalArrayRef array = LEXMKIntervalArrayCreateWithIntervals(intervals,
+                                                                        length,
+                                                                        false);
+    return array;
 }
 

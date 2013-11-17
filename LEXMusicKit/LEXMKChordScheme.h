@@ -29,6 +29,12 @@ enum {
 };
 typedef int LEXMKChordOptType;
 
+enum {
+    LEXMKChordSusNone = 0,
+    LEXMKchordSus2 = 1,
+    LEXMKchordSus4 = 2
+};
+
 /** Chord option with type and related info.
  */
 struct LEXMKChordOpt {
@@ -63,6 +69,7 @@ LEXMKChordMode LEXMKChordSchemeGetMode(LEXMKChordSchemeRef scheme);
 unsigned int LEXMKChordSchemeGetOptsLength(LEXMKChordSchemeRef scheme);
 LEXMKChordOpt * LEXMKChordSchemeGetOpts(LEXMKChordSchemeRef scheme);
 
-LEXMKIntervalArrayRef LEXMKChordSchemeGetIntervalArray(LEXMKChordSchemeRef scheme, bool isRelated);
+LEXMKInterval * LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordMode mode, int susVal, unsigned int *outLength);
+LEXMKIntervalArrayRef LEXMKChordSchemeGetIntervalArray(LEXMKChordSchemeRef scheme, LEXMKChordOpt **outUnrecognizedOpts, unsigned int *outUnrecognizedOptsLength);
 
 #endif
