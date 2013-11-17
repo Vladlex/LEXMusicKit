@@ -24,6 +24,8 @@
 		0B984C37182DFB2E00E9794E /* LEXMKIntervalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984C36182DFB2E00E9794E /* LEXMKIntervalTests.m */; };
 		0B984CAB18311ADB00E9794E /* LEXMKIntervalArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B984CAA18311ADB00E9794E /* LEXMKIntervalArray.c */; };
 		0B984CAD18312BC300E9794E /* LEXMKIntervalArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B984CAC18312BC300E9794E /* LEXMKIntervalArrayTests.m */; };
+		88EF890F1838A5AC007FA579 /* LEXMKChordScheme.c in Sources */ = {isa = PBXBuildFile; fileRef = 88EF890E1838A5AC007FA579 /* LEXMKChordScheme.c */; };
+		88EF89101838A5BC007FA579 /* LEXMKChordScheme.c in Sources */ = {isa = PBXBuildFile; fileRef = 88EF890E1838A5AC007FA579 /* LEXMKChordScheme.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		0B984CA918311ACE00E9794E /* LEXMKIntervalArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEXMKIntervalArray.h; sourceTree = "<group>"; };
 		0B984CAA18311ADB00E9794E /* LEXMKIntervalArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LEXMKIntervalArray.c; sourceTree = "<group>"; };
 		0B984CAC18312BC300E9794E /* LEXMKIntervalArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEXMKIntervalArrayTests.m; sourceTree = "<group>"; };
+		88EF890D183896A5007FA579 /* LEXMKChordScheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEXMKChordScheme.h; sourceTree = "<group>"; };
+		88EF890E1838A5AC007FA579 /* LEXMKChordScheme.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LEXMKChordScheme.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 				0B984C17182DC9AE00E9794E /* LEXMKInterval.c */,
 				0B984C18182DC9AE00E9794E /* LEXMKDegree.h */,
 				0B984C19182DC9AE00E9794E /* LEXMKDegree.c */,
+				88EF890D183896A5007FA579 /* LEXMKChordScheme.h */,
+				88EF890E1838A5AC007FA579 /* LEXMKChordScheme.c */,
 				0B984C1A182DC9AE00E9794E /* LEXMKDiatonicFunction.h */,
 				0B984C1B182DC9AE00E9794E /* LEXMKDiatonicFunction.c */,
 				0B984CA918311ACE00E9794E /* LEXMKIntervalArray.h */,
@@ -265,6 +271,7 @@
 				0B984C1C182DC9AE00E9794E /* LEXMKInterval.c in Sources */,
 				0B984C1E182DC9AE00E9794E /* LEXMKDegree.c in Sources */,
 				0B984C20182DC9AE00E9794E /* LEXMKDiatonicFunction.c in Sources */,
+				88EF890F1838A5AC007FA579 /* LEXMKChordScheme.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B984C1F182DC9AE00E9794E /* LEXMKDegree.c in Sources */,
+				88EF89101838A5BC007FA579 /* LEXMKChordScheme.c in Sources */,
 				0B984C1D182DC9AE00E9794E /* LEXMKInterval.c in Sources */,
 				0B984C21182DC9AE00E9794E /* LEXMKDiatonicFunction.c in Sources */,
 				0B984CAD18312BC300E9794E /* LEXMKIntervalArrayTests.m in Sources */,
