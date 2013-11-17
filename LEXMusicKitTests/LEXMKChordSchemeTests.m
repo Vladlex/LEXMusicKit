@@ -54,11 +54,36 @@
     intervals = LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordModeMajor,
                                                        LEXMKchordSus2,
                                                        &length);
-    XCTAssert(length == 2, @"Expected length should be %u, but it's %u", 2, length);
-    XCTAssert(intervals[0] == LEXMKIntervalMajorSecond, @"Expected first interval is %d, but it's %d", LEXMKIntervalMajorThird, intervals[0]);
-    XCTAssert(intervals[1] == LEXMKIntervalPerfectFifth, @"Expected second interval is %d, but it's %d", LEXMKIntervalPerfectFifth, intervals[1]);
+    XCTAssertTrue(length == 2, @"Expected length should be %u, but it's %u", 2, length);
+    XCTAssertTrue(intervals[0] == LEXMKIntervalMajorSecond, @"Expected first interval is %d, but it's %d", LEXMKIntervalPerfectFourth, intervals[0]);
+    XCTAssertTrue(intervals[1] == LEXMKIntervalPerfectFifth, @"Expected second interval is %d, but it's %d", LEXMKIntervalPerfectFifth, intervals[1]);
     free(intervals);
+    
+    intervals = LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordModeMajor,
+                                                             LEXMKchordSus4,
+                                                             &length);
+    XCTAssertTrue(length == 2, @"Expected length should be %u, but it's %u", 2, length);
+    XCTAssertTrue(intervals[0] == LEXMKIntervalPerfectFourth, @"Expected first interval is %d, but it's %d", LEXMKIntervalPerfectFourth, intervals[0]);
+    XCTAssertTrue(intervals[1] == LEXMKIntervalPerfectFifth, @"Expected second interval is %d, but it's %d", LEXMKIntervalPerfectFifth, intervals[1]);
+    free(intervals);
+    
+}
 
+- (void)testSchemeCreatingIntervalsForDiminishedMode
+
+{
+    unsigned int length;
+    LEXMKInterval *intervals;
+    intervals = LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordModeDim,
+                                                             LEXMKChordSusNone,
+                                                             &length);
+    XCTAssertTrue(length == 3, @"Expected length for aug mode is 3, but it's %u", length);
+    LEXMKInterval lastInterval = 0;
+    for (int i = 0; i < length; i++) {
+        lastInterval += LEXMKIntervalMinorThird;
+        XCTAssertTrue(intervals[i] == lastInterval, @"interval at index %d should be %d, but it's %d", i, lastInterval, intervals[i]);
+    }
+    free(intervals);
 }
 
 @end
