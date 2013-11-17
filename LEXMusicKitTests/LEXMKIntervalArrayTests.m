@@ -119,7 +119,29 @@
     length = LEXMKIntervalArrayGetLength(array);
     XCTAssertTrue(funcExit == EXIT_FAILURE, @"Expecting failure when inserting interval at non-exists index %u to array with length %u", 5, length);
     LEXMKIntervalArrayDestroy(array);
+}
+
+- (void)testIntervalArrayAddingInterval
+{
+    unsigned int length;
+    LEXMKInterval *intervals;
     
+    LEXMKIntervalArrayRef array = LEXMKIntervalArrayCreate();
+    LEXMKIntervalArrayAddInterval(array, LEXMKIntervalPerfectUnison);
+    length = LEXMKIntervalArrayGetLength(array);
+    intervals = LEXMKIntervalArrayGetIntervals(array);
+    XCTAssertTrue(length == 1, @"Expected length is %u, but it's %u", 1, length);
+    XCTAssertTrue(intervals!= NULL, @"Expected non-null intervals");
+    XCTAssertTrue(intervals[0] == LEXMKIntervalPerfectUnison, @"Expected interval is unison, but it's %d", intervals[0]);
+    
+    LEXMKIntervalArrayAddInterval(array, LEXMKIntervalMajorThird);
+    length = LEXMKIntervalArrayGetLength(array);
+    intervals = LEXMKIntervalArrayGetIntervals(array);
+    XCTAssertTrue(length == 2, @"Expected length is 2, but it's %u", length);
+    XCTAssertTrue(intervals[0]==LEXMKIntervalPerfectUnison, @"Expect %d, but it's %d", LEXMKIntervalPerfectUnison, intervals[0]);
+    XCTAssertTrue(intervals[1]==LEXMKIntervalMajorThird, @"Expect %d, but it's %d", LEXMKIntervalMajorThird, intervals[1]);
+    
+    LEXMKIntervalArrayDestroy(array);
 }
 
 @end
