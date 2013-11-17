@@ -163,6 +163,7 @@ LEXMKIntervalArrayRef LEXMKChordSchemeGetIntervalArray(LEXMKChordSchemeRef schem
     LEXMKIntervalArrayRef array = LEXMKIntervalArrayCreateWithIntervals(intervals,
                                                                         length,
                                                                         false);
+    free(intervals);
     return array;
 }
 
