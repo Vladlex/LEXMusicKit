@@ -107,7 +107,7 @@ LEXMKInterval * LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordMode mode
             break;
         case LEXMKChordModeDim:
             triad2interval = LEXMKIntervalMinorThird;
-            triad3interval = LEXMKIntervalMinorThird;
+            triad3interval = triad2interval + LEXMKIntervalMinorThird;
             break;
         default:
             canContinue = false;
