@@ -23,7 +23,7 @@ typedef struct _LEXMKIntervalArray * LEXMKIntervalArrayRef;
 /**
  Destroy malloced intervals.You should not use array after destroying in any way.
  @param array Array to destroy
- @returns EXIT_SUCCESS if all ok.
+ @returns EXIT_SUCCESS if all is ok.
  */
 int LEXMKIntervalArrayDestroy(LEXMKIntervalArrayRef array);
 
@@ -33,7 +33,7 @@ int LEXMKIntervalArrayDestroy(LEXMKIntervalArrayRef array);
  Initing given array.
  @param array An allocated array to initialize. 
  @description This method initialized with NULL intervals, zero length and mark intervals as related to each other (isRelative = true).
- @returns EXIT_SUCCESS if all Ok.
+ @returns EXIT_SUCCESS if all is ok.
  */
 int LEXMKIntervalArrayInit(LEXMKIntervalArrayRef array);
 
@@ -47,7 +47,7 @@ LEXMKInterval * LEXMKIntervalArrayGetIntervals(LEXMKIntervalArrayRef array);
 	@param array Array with needed intervals. This parameter should not be NULL.
 	@param intervals Array intervals. May be Null.
 	@param length Array intervals length. May be Null.
-	@returns EXIT_SUCCESS if all ok.
+	@returns EXIT_SUCCESS if all is ok.
  */
 int LEXMKIntervalArrayGetIntervalsAndLength(LEXMKIntervalArrayRef array, LEXMKInterval ** outIntervals, unsigned int *outLength);
 
@@ -123,7 +123,7 @@ bool LEXMKIntervalArrayIsEqual(LEXMKIntervalArrayRef array1, LEXMKIntervalArrayR
 	Adds interval to array.
 	@param array Array which should be appended by interval.
 	@param interval An interval which should be added to array.
-	@returns EXIT_SUCCESS if all Ok.
+	@returns EXIT_SUCCESS if all is ok.
  */
 int LEXMKIntervalArrayAddInterval(LEXMKIntervalArrayRef array, LEXMKInterval interval);
 
@@ -132,7 +132,7 @@ int LEXMKIntervalArrayAddInterval(LEXMKIntervalArrayRef array, LEXMKInterval int
  @param array Array which should be appended by interval.
  @param interval An interval which chould be inserted to array.
  @param position Desired position of inserting interval.
- @returns EXIT_SUCCESS if all Ok.
+ @returns EXIT_SUCCESS if all is ok.
  */
 int LEXMKIntervalArrayInsertIntervalAtIndex(LEXMKIntervalArrayRef array, LEXMKInterval interval, unsigned int idx);
 
