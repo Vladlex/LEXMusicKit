@@ -6,7 +6,29 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0B7C83C71839E1C1003BCF27 /* UniversalLib */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0B7C83C81839E1C1003BCF27 /* Build configuration list for PBXAggregateTarget "UniversalLib" */;
+			buildPhases = (
+				0B7C83CB1839E1D8003BCF27 /* ShellScript */,
+			);
+			dependencies = (
+				0B7C83D51839E86A003BCF27 /* PBXTargetDependency */,
+			);
+			name = UniversalLib;
+			productName = UniversalLib;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		0B7C83CC1839E2CE003BCF27 /* LEXMusicKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984C14182DC9AE00E9794E /* LEXMusicKit.h */; };
+		0B7C83CD1839E2CE003BCF27 /* LEXMKMode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984C15182DC9AE00E9794E /* LEXMKMode.h */; };
+		0B7C83CE1839E2CE003BCF27 /* LEXMKInterval.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984C16182DC9AE00E9794E /* LEXMKInterval.h */; };
+		0B7C83CF1839E2CE003BCF27 /* LEXMKDegree.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984C18182DC9AE00E9794E /* LEXMKDegree.h */; };
+		0B7C83D01839E2CE003BCF27 /* LEXMKChordScheme.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 88EF890D183896A5007FA579 /* LEXMKChordScheme.h */; };
+		0B7C83D11839E2CE003BCF27 /* LEXMKDiatonicFunction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984C1A182DC9AE00E9794E /* LEXMKDiatonicFunction.h */; };
+		0B7C83D21839E2CE003BCF27 /* LEXMKIntervalArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984CA918311ACE00E9794E /* LEXMKIntervalArray.h */; };
 		0B984BEF182DC98400E9794E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BEE182DC98400E9794E /* Foundation.framework */; };
 		0B984BFD182DC98500E9794E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BFC182DC98500E9794E /* XCTest.framework */; };
 		0B984BFE182DC98500E9794E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B984BEE182DC98400E9794E /* Foundation.framework */; };
@@ -30,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0B7C83D41839E86A003BCF27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B984BE3182DC98400E9794E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B984BEA182DC98400E9794E;
+			remoteInfo = LEXMusicKit;
+		};
 		0B984C01182DC98500E9794E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0B984BE3182DC98400E9794E /* Project object */;
@@ -42,10 +71,17 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		0B984BE9182DC98400E9794E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
+			buildActionMask = 12;
+			dstPath = LEXMusicKit;
 			dstSubfolderSpec = 16;
 			files = (
+				0B7C83CC1839E2CE003BCF27 /* LEXMusicKit.h in CopyFiles */,
+				0B7C83CD1839E2CE003BCF27 /* LEXMKMode.h in CopyFiles */,
+				0B7C83CE1839E2CE003BCF27 /* LEXMKInterval.h in CopyFiles */,
+				0B7C83CF1839E2CE003BCF27 /* LEXMKDegree.h in CopyFiles */,
+				0B7C83D01839E2CE003BCF27 /* LEXMKChordScheme.h in CopyFiles */,
+				0B7C83D11839E2CE003BCF27 /* LEXMKDiatonicFunction.h in CopyFiles */,
+				0B7C83D21839E2CE003BCF27 /* LEXMKIntervalArray.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +286,7 @@
 			targets = (
 				0B984BEA182DC98400E9794E /* LEXMusicKit */,
 				0B984BFA182DC98500E9794E /* LEXMusicKitTests */,
+				0B7C83C71839E1C1003BCF27 /* UniversalLib */,
 			);
 		};
 /* End PBXProject section */
@@ -264,6 +301,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B7C83CB1839E1D8003BCF27 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=\"./../Libraries/LEXMusicKit\"\n#${BUILD_DIR}/${CONFIGURATION}-universal\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target LEXMusicKit ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target LEXMusicKit -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/lib${PROJECT_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/include\" \"${UNIVERSAL_OUTPUTFOLDER}/LEXMusicKit\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B984BE7182DC98400E9794E /* Sources */ = {
@@ -297,6 +350,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0B7C83D51839E86A003BCF27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B984BEA182DC98400E9794E /* LEXMusicKit */;
+			targetProxy = 0B7C83D41839E86A003BCF27 /* PBXContainerItemProxy */;
+		};
 		0B984C02182DC98500E9794E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0B984BEA182DC98400E9794E /* LEXMusicKit */;
@@ -316,6 +374,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0B7C83C91839E1C1003BCF27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0B7C83CA1839E1C1003BCF27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		0B984C0C182DC98500E9794E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -391,7 +463,11 @@
 		0B984C0F182DC98500E9794E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				DSTROOT = /tmp/LEXMusicKit.dst;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LEXMusicKit/LEXMusicKit-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -403,7 +479,11 @@
 		0B984C10182DC98500E9794E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				DSTROOT = /tmp/LEXMusicKit.dst;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LEXMusicKit/LEXMusicKit-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -453,6 +533,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0B7C83C81839E1C1003BCF27 /* Build configuration list for PBXAggregateTarget "UniversalLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B7C83C91839E1C1003BCF27 /* Debug */,
+				0B7C83CA1839E1C1003BCF27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		0B984BE6182DC98400E9794E /* Build configuration list for PBXProject "LEXMusicKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
