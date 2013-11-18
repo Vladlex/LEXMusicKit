@@ -86,4 +86,21 @@
     free(intervals);
 }
 
+- (void)testSchemeCreatingIntervalsForAugmentedMode
+{
+    unsigned int length;
+    LEXMKInterval *intervals;
+    intervals = LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordModeAug,
+                                                             LEXMKChordSusNone,
+                                                             &length);
+    XCTAssertTrue(length == 2, @"Expected length is %u, but it's %u", 2, length);
+    XCTAssertTrue(intervals != NULL, @"Expected non-null intervals");
+    LEXMKInterval lastInterval = 0;
+    for (int i = 0; i < length; i ++) {
+        lastInterval += LEXMKIntervalMajorThird;
+        XCTAssertTrue(lastInterval == intervals[i], @"Interval should be %u, but it's %u", lastInterval, intervals[i]);
+    }
+    free(intervals);
+}
+
 @end
