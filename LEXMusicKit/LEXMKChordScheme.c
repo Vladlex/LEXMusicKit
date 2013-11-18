@@ -65,7 +65,6 @@ LEXMKChordOpt * LEXMKChordSchemeGetOpts(LEXMKChordSchemeRef scheme)
 
 LEXMKInterval *LEXMKChordSchemeGetIntervals(LEXMKChordSchemeRef scheme, bool isRelated)
 {
-    
     return NULL;
 }
 
@@ -138,7 +137,7 @@ LEXMKInterval * LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordMode mode
     return intervals;
 }
 
-LEXMKIntervalArrayRef LEXMKChordSchemeGetIntervalArray(LEXMKChordSchemeRef scheme,
+LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithScheme(LEXMKChordSchemeRef scheme,
                                                        LEXMKChordOpt **outUnrecognizedOpts,
                                                        unsigned int * outUnrecognizedOptsLength)
 {
