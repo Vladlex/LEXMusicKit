@@ -14,5 +14,7 @@
 #include "LEXMKMode.h"
 #include "LEXMKDiatonicFunction.h"
 #include "LEXMKInterval.h"
+#include "LEXMKIntervalArray.h"
+#include "LEXMKChordScheme.h"
 
 #endif //iChord_LEXMusicKit_h
