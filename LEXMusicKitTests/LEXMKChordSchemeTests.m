@@ -52,7 +52,7 @@
     free(intervals);
     
     intervals = LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordModeMajor,
-                                                       LEXMKchordSus2,
+                                                       LEXMKChordSus2,
                                                        &length);
     XCTAssertTrue(length == 2, @"Expected length should be %u, but it's %u", 2, length);
     XCTAssertTrue(intervals[0] == LEXMKIntervalMajorSecond, @"Expected first interval is %d, but it's %d", LEXMKIntervalPerfectFourth, intervals[0]);
@@ -60,7 +60,7 @@
     free(intervals);
     
     intervals = LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordModeMajor,
-                                                             LEXMKchordSus4,
+                                                             LEXMKChordSus4,
                                                              &length);
     XCTAssertTrue(length == 2, @"Expected length should be %u, but it's %u", 2, length);
     XCTAssertTrue(intervals[0] == LEXMKIntervalPerfectFourth, @"Expected first interval is %d, but it's %d", LEXMKIntervalPerfectFourth, intervals[0]);
