@@ -103,4 +103,19 @@
     free(intervals);
 }
 
+- (void)testChordGeneratingIntervals
+{
+    LEXMKChordOpt opt = LEXMKChordOptMakeWithTypeAndInfo(LEXMKChordOptTypeWide,
+                                                         LEXMKIntervalMinorSeventh);
+    LEXMKChordOpt opts[1] = {opt};
+    LEXMKChordSchemeRef scheme = LEXMKChordSchemeCreateWithModeAndOpts(LEXMKChordModeMajor, opts, 1);
+    LEXMKChordOpt *unrecOpts;
+    unsigned int unrecOptsLength;
+    LEXMKIntervalArrayRef array = LEXMKIntervalArrayCreateWithScheme(scheme,
+                                                                     LEXMKChordRecognitionNotationClassic
+                                                                     , &unrecOpts, &unrecOptsLength);
+    XCTAssertTrue(array != NULL, @"Expected non-null array");
+    XCTAssertTrue(unrecOptsLength == 0 && unrecOpts == NULL, @"Expected that all opts are recognized");
+}
+
 @end
