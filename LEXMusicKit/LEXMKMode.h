@@ -22,7 +22,7 @@ typedef int LEXMKMode;
 
 #define LEXMKModeModesCount LEXMKModeNonexistent
 
-/// In guitar chords building usually uses ony natural modes
+/// Usually uses ony natural modes
 #define LEXMKModeMajor LEXMKModeMajorNatural
 #define LEXMKModeMinor LEXMKModeMinorNatural
 
