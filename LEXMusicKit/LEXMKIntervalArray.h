@@ -136,5 +136,12 @@ int LEXMKIntervalArrayAddInterval(LEXMKIntervalArrayRef array, LEXMKInterval int
  */
 int LEXMKIntervalArrayInsertIntervalAtIndex(LEXMKIntervalArrayRef array, LEXMKInterval interval, unsigned int idx);
 
+/**
+ Returns interval at given index
+ @param array.Array with needed interval.
+ @param idx Index of the needed interval.
+ return Needed index or INT_MIN if an error occured.
+ */
+LEXMKInterval LEXMKIntervalArrayGetIntervalAtIndex(LEXMKIntervalArrayRef array, unsigned int idx);
 
 #endif

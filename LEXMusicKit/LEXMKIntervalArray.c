@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <stdio.h>
+#include <limits.h>
 
 #include "LEXMKIntervalArray.h"
 
@@ -186,3 +187,11 @@ int LEXMKIntervalArrayAddInterval(LEXMKIntervalArrayRef array, LEXMKInterval int
                                                    array->length);
 }
 
+LEXMKInterval LEXMKIntervalArrayGetIntervalAtIndex(LEXMKIntervalArrayRef array,
+                                                   unsigned int idx)
+{
+    if (idx < array->length - 1) {
+        return array->intervals[idx];
+    }
+    return INT_MIN;
+}
