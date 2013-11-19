@@ -24,8 +24,8 @@ typedef int LEXMKChordMode;
 
 enum {
     LEXMKChordSusNone = 0,
-    LEXMKchordSus2 = 1,
-    LEXMKchordSus4 = 2
+    LEXMKChordSus2 = 1,
+    LEXMKChordSus4 = 2
 };
 
 enum  {
@@ -60,10 +60,6 @@ LEXMKChordMode LEXMKChordSchemeGetMode(LEXMKChordSchemeRef scheme);
 unsigned int LEXMKChordSchemeGetOptsLength(LEXMKChordSchemeRef scheme);
 LEXMKChordOpt * LEXMKChordSchemeGetOpts(LEXMKChordSchemeRef scheme);
 
-/*  --- === Other type instances creating --- === */
-
-
-
 
 
 LEXMKChordOpt *LEXMKChordSchemeGetOptsWithType(LEXMKChordSchemeRef scheme,
@@ -72,7 +68,8 @@ LEXMKChordOpt *LEXMKChordSchemeGetOptsWithType(LEXMKChordSchemeRef scheme,
 
 bool LEXMKChordSchemeHasOptWithTypeAndInfo(LEXMKChordSchemeRef scheme,
                                                        LEXMKChordOptType type,
-                                                       int info);
+                                                       int info,
+                                           unsigned int *foundOptIdx);
 
 /**
  Returns intervals for mode.

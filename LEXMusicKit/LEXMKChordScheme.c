@@ -36,12 +36,14 @@ LEXMKChordOpt *LEXMKChordSchemeGetOptsWithType(LEXMKChordSchemeRef scheme,
 
 bool LEXMKChordSchemeHasOptWithTypeAndInfo(LEXMKChordSchemeRef scheme,
                                            LEXMKChordOptType type,
-                                           int info)
+                                           int info,
+                                           unsigned int *foundOptIdx)
 {
         return LEXMKChordOptHasOptWithTypeAndInfo(scheme->opts,
                                                   scheme->optsLength,
                                                   type,
-                                                  info);
+                                                  info,
+                                                  foundOptIdx);
 }
 
 
@@ -104,10 +106,10 @@ LEXMKInterval * LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordMode mode
     LEXMKInterval triad2interval;
     LEXMKInterval triad3interval;
     switch (susVal) {
-        case LEXMKchordSus2:     // Sus2
+        case LEXMKChordSus2:     // Sus2
             triad2interval = LEXMKIntervalMajorSecond;
             break;
-        case LEXMKchordSus4:     // Sus4
+        case LEXMKChordSus4:     // Sus4
             triad2interval = LEXMKIntervalPerfectFourth;
             break;
         default:
@@ -176,7 +178,8 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithScheme(LEXMKChordSchemeRef sch
         bool hasWideFifthInterval = false;
         hasWideFifthInterval = LEXMKChordSchemeHasOptWithTypeAndInfo(scheme,
                                                                      LEXMKChordOptTypeWide,
-                                                                     LEXMKIntervalPerfectFifth);
+                                                                     LEXMKIntervalPerfectFifth,
+                                                                     NULL);
         if (hasWideFifthInterval) {
             shouldCreateGuitarFifth = true;
         }
