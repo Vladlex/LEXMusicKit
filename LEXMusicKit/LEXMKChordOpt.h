@@ -44,6 +44,7 @@ LEXMKChordOpt *LEXMKChordCreateOptsWithTypeFromOpts(LEXMKChordOpt * opts,
 bool LEXMKChordOptHasOptWithTypeAndInfo(LEXMKChordOpt *opts,
                                         unsigned int length,
                                         LEXMKChordOptType type,
-                                        int info);
+                                        int info,
+                                        unsigned int *outFoundOptIdx);
 
 #endif

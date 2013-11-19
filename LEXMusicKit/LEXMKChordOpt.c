@@ -23,12 +23,16 @@ LEXMKChordOpt LEXMKChordOptMakeWithTypeAndInfo(LEXMKChordOptType type, int info)
 bool LEXMKChordOptHasOptWithTypeAndInfo(LEXMKChordOpt *opts,
                                         unsigned int length,
                                         LEXMKChordOptType type,
-                                        int info)
+                                        int info,
+                                        unsigned int *outFoundOptIdx)
 {
     if (opts != NULL && length > 0) {
         for (int i = 0; i < length; i++) {
             LEXMKChordOpt opt = opts[i];
             if (opt.type == type && opt.info == info) {
+                if (outFoundOptIdx != NULL) {
+                    *outFoundOptIdx = i;
+                }
                 return true;
             }
         }
