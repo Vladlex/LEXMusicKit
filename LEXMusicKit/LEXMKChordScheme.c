@@ -18,6 +18,8 @@ typedef struct _LEXMKChordScheme {
     unsigned int optsLength;
 } LEXMKChordScheme;
 
+int LEXMKChordSchemeAddOptResultToIntervalArray(LEXMKChordOpt opt, LEXMKIntervalArrayRef array);
+
 /*  --- === Creating chord opt === --- */
 
 LEXMKChordOpt *LEXMKChordSchemeGetOptsWithType(LEXMKChordSchemeRef scheme,
@@ -185,7 +187,6 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithScheme(LEXMKChordSchemeRef sch
         }
     }
     
-    
     LEXMKInterval *intervals;
     unsigned int length;
     if (shouldCreateGuitarFifth == true) {
@@ -208,7 +209,12 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithScheme(LEXMKChordSchemeRef sch
                                                                  susVal,
                                                                  &length);
     }
-    // many other thing should be done
+    
+    
+    LEXMKIntervalArrayRef array = LEXMKIntervalArrayCreateWithIntervals(intervals,
+                                                                        length,
+                                                                        false);
+    free(intervals);
     
     LEXMKChordOpt opt;
     for (int i = 0; i < scheme->optsLength; i ++) {
@@ -217,13 +223,31 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithScheme(LEXMKChordSchemeRef sch
             (opt.type == LEXMKChordOptTypeWide && opt.info == LEXMKIntervalPerfectFifth) ) {
             continue;
         }
+        else {
+            LEXMKChordSchemeAddOptResultToIntervalArray(opt, array);
+        }
         
     }
     
-    LEXMKIntervalArrayRef array = LEXMKIntervalArrayCreateWithIntervals(intervals,
-                                                                        length,
-                                                                        false);
-    free(intervals);
     return array;
 }
 
+int LEXMKChordSchemeAddOptResultToIntervalArray(LEXMKChordOpt opt, LEXMKIntervalArrayRef array)
+{
+    switch (opt.type) {
+        case LEXMKChordOptTypeWide:
+            LEXMKIntervalArrayAddInterval(array, opt.info);
+            break;
+        case LEXMKChordOptTypeAdd:
+            LEXMKIntervalArrayAddInterval(array, opt.info);
+            break;
+        case LEXMKChordOptTypeAltBass:
+            LEXMKIntervalArrayInsertIntervalAtIndex(array,
+                                                    opt.info,
+                                                    0);
+            break;
+        default:
+            break;
+    }
+    return EXIT_SUCCESS;
+}
