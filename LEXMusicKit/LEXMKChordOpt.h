@@ -16,6 +16,7 @@ enum {
     LEXMKChordOptTypeWide,
     LEXMKChordOptTypeSus,
     LEXMKChordOptTypeAdd,
+    LEXMKChordOptTypeAlt,
     LEXMKChordOptTypeAltBass
 };
 typedef int LEXMKChordOptType;
@@ -26,6 +27,7 @@ typedef int LEXMKChordOptType;
  Wide - The widest interval in chord. Info is interval.
  Sus - suspended chord. Third interval changes to major second or perfect fourth. Make a note, that original third is no more in chord. Info is LEXMKchordSus2 for sus2 and LEXMKchordSus4 for sus4.
  Add - adding given interval to a chord. Info is interval.
+ Alt - interval should be altered on semitone. Info is altered interval. Negative vaue to decrease interval by semitone. Positive to decrease given interval by semitone.
  AltBass - first note of chord is different from tonic. Info is shift from tonic like -2 for chord Am/G.
  */
 struct LEXMKChordOpt {
