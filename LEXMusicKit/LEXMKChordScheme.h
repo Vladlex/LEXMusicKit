@@ -35,11 +35,17 @@ enum {
     LEXMKchordSus4 = 2
 };
 
+enum  {
+    LEXMKChordRecognitionNotationClassic = 0,
+    LEXMKChordRecognitionNotationGuitar
+};
+typedef int LEXMKChordRecognitionNotation;
+
 /** Chord option with type and related info.
  
  What info means for type?
  Wide - The widest interval in chord. Info is interval.
- Sus - suspended chord. Third interval changes to major second or perfect fourth. Make a note, that original third is no more in chord. Info is 0 for sus2 and 1 for sus4.
+ Sus - suspended chord. Third interval changes to major second or perfect fourth. Make a note, that original third is no more in chord. Info is LEXMKchordSus2 for sus2 and LEXMKchordSus4 for sus4.
  Add - adding given interval to a chord. Info is interval.
  AltBass - first note of chord is different from tonic. Info is shift from tonic like -2 for chord Am/G.
  */
@@ -95,6 +101,6 @@ LEXMKInterval * LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordMode mode
 	@param outUnrecognizedOptsLength Upon return this variable containts length of the outUnrecognizedOpts vector.
 	@returns LEXMKIntervalArrayRef instance or NULL if mode is unknown.
  */
-LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithScheme(LEXMKChordSchemeRef scheme, LEXMKChordOpt **outUnrecognizedOpts, unsigned int *outUnrecognizedOptsLength);
+LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithScheme(LEXMKChordSchemeRef scheme, LEXMKChordRecognitionNotation notation, LEXMKChordOpt **outUnrecognizedOpts, unsigned int *outUnrecognizedOptsLength);
 
 #endif

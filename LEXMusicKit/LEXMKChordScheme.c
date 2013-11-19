@@ -138,8 +138,9 @@ LEXMKInterval * LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordMode mode
 }
 
 LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithScheme(LEXMKChordSchemeRef scheme,
-                                                       LEXMKChordOpt **outUnrecognizedOpts,
-                                                       unsigned int * outUnrecognizedOptsLength)
+                                                         LEXMKChordRecognitionNotation notation,
+                                                         LEXMKChordOpt **outUnrecognizedOpts,
+                                                         unsigned int *outUnrecognizedOptsLength)
 {
     LEXMKChordOpt * opts = scheme->opts;
     unsigned int optsLength = scheme->optsLength;
