@@ -109,8 +109,8 @@
                                                          LEXMKIntervalMinorSeventh);
     LEXMKChordOpt opts[1] = {opt};
     LEXMKChordSchemeRef scheme = LEXMKChordSchemeCreateWithModeAndOpts(LEXMKChordModeMajor, opts, 1);
-    LEXMKChordOpt *unrecOpts;
-    unsigned int unrecOptsLength;
+    LEXMKChordOpt *unrecOpts = NULL;
+    unsigned int unrecOptsLength = 0;
     LEXMKIntervalArrayRef array = LEXMKIntervalArrayCreateWithScheme(scheme,
                                                                      LEXMKChordRecognitionNotationClassic
                                                                      , &unrecOpts, &unrecOptsLength);
