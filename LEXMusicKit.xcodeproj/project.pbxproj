@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0B6F6F56183B532500C8C088 /* LEXMKChordOpt.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B6F6F55183B532500C8C088 /* LEXMKChordOpt.c */; };
 		0B7C83CC1839E2CE003BCF27 /* LEXMusicKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984C14182DC9AE00E9794E /* LEXMusicKit.h */; };
 		0B7C83CD1839E2CE003BCF27 /* LEXMKMode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984C15182DC9AE00E9794E /* LEXMKMode.h */; };
 		0B7C83CE1839E2CE003BCF27 /* LEXMKInterval.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B984C16182DC9AE00E9794E /* LEXMKInterval.h */; };
@@ -88,6 +89,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B6F6F54183B531D00C8C088 /* LEXMKChordOpt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEXMKChordOpt.h; sourceTree = "<group>"; };
+		0B6F6F55183B532500C8C088 /* LEXMKChordOpt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LEXMKChordOpt.c; sourceTree = "<group>"; };
 		0B984BEB182DC98400E9794E /* libLEXMusicKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLEXMusicKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B984BEE182DC98400E9794E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0B984BFB182DC98500E9794E /* LEXMusicKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LEXMusicKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +185,8 @@
 				0B984C17182DC9AE00E9794E /* LEXMKInterval.c */,
 				0B984C18182DC9AE00E9794E /* LEXMKDegree.h */,
 				0B984C19182DC9AE00E9794E /* LEXMKDegree.c */,
+				0B6F6F54183B531D00C8C088 /* LEXMKChordOpt.h */,
+				0B6F6F55183B532500C8C088 /* LEXMKChordOpt.c */,
 				88EF890D183896A5007FA579 /* LEXMKChordScheme.h */,
 				88EF890E1838A5AC007FA579 /* LEXMKChordScheme.c */,
 				0B984C1A182DC9AE00E9794E /* LEXMKDiatonicFunction.h */,
@@ -323,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B6F6F56183B532500C8C088 /* LEXMKChordOpt.c in Sources */,
 				0B984CAB18311ADB00E9794E /* LEXMKIntervalArray.c in Sources */,
 				0B984C1C182DC9AE00E9794E /* LEXMKInterval.c in Sources */,
 				0B984C1E182DC9AE00E9794E /* LEXMKDegree.c in Sources */,
@@ -540,6 +546,7 @@
 				0B7C83CA1839E1C1003BCF27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B984BE6182DC98400E9794E /* Build configuration list for PBXProject "LEXMusicKit" */ = {
 			isa = XCConfigurationList;
