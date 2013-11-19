@@ -79,7 +79,7 @@ LEXMKInterval * LEXMKIntervalArrayGetIntervals(LEXMKIntervalArrayRef array)
 
 LEXMKIntervalArrayRef LEXMKIntervalArrayCreate()
 {
-    LEXMKIntervalArrayRef array = malloc(sizeof(LEXMKIntervalArrayRef));
+    LEXMKIntervalArrayRef array = malloc(sizeof(LEXMKIntervalArray));
     LEXMKIntervalArrayInit(array);
     return array;
 }
@@ -109,7 +109,7 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByAddingIntervalToArray(LEXMKInter
     LEXMKInterval *resultIntervals;
     unsigned int resultLength;
     
-    resultArray = malloc(sizeof(LEXMKIntervalArrayRef));
+    resultArray = malloc(sizeof(LEXMKIntervalArray));
     resultLength = srcArray->length + 1;
     resultIntervals = malloc(sizeof(LEXMKInterval)* resultLength);
     if (srcArray->length > 0) {
@@ -130,7 +130,7 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateByAddingIntervalsToArray(LEXMKInte
     LEXMKInterval *resultIntervals;
     unsigned int resultLength;
     
-    resultArray = malloc(sizeof(LEXMKIntervalArrayRef));
+    resultArray = malloc(sizeof(LEXMKIntervalArray));
     resultLength = srcArray->length + length;
     resultIntervals = malloc(sizeof(LEXMKInterval) * resultLength);
     if (srcArray->length > 0) {
