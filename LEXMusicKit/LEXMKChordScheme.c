@@ -18,6 +18,34 @@ typedef struct _LEXMKChordScheme {
     unsigned int optsLength;
 } LEXMKChordScheme;
 
+/*  --- === Creating chord opt === --- */
+
+LEXMKChordOpt *LEXMKChordSchemeGetOptsWithType(LEXMKChordSchemeRef scheme,
+                                               LEXMKChordOptType type,
+                                               unsigned int * outFoundOptsLength)
+{
+    if (scheme->optsLength > 0) {
+        return LEXMKChordCreateOptsWithTypeFromOpts(scheme->opts,
+                                                    scheme->optsLength,
+                                                    type,
+                                                    outFoundOptsLength);
+    }
+    *outFoundOptsLength = 0;
+    return NULL;
+}
+
+bool LEXMKChordSchemeHasOptWithTypeAndInfo(LEXMKChordSchemeRef scheme,
+                                           LEXMKChordOptType type,
+                                           int info)
+{
+        return LEXMKChordOptHasOptWithTypeAndInfo(scheme->opts,
+                                                  scheme->optsLength,
+                                                  type,
+                                                  info);
+}
+
+
+
 LEXMKChordSchemeRef LEXMKChordSchemeCreateWithModeAndOpts(LEXMKChordMode mode, LEXMKChordOpt * opts, unsigned int optsLength)
 {
     
@@ -142,23 +170,52 @@ LEXMKIntervalArrayRef LEXMKIntervalArrayCreateWithScheme(LEXMKChordSchemeRef sch
                                                          LEXMKChordOpt **outUnrecognizedOpts,
                                                          unsigned int *outUnrecognizedOptsLength)
 {
-    LEXMKChordOpt * opts = scheme->opts;
-    unsigned int optsLength = scheme->optsLength;
-    int susVal = -1;
-    for (int i = 0; i < optsLength; i ++) {
-        LEXMKChordOpt opt = opts[i];
-        if (opt.type == LEXMKChordOptTypeSus) {
-            susVal = opt.info;
-            break;
+    bool shouldCreateGuitarFifth = false;
+    if (notation != LEXMKChordRecognitionNotationClassic) {
+        // Fifth are created by other method for guitars
+        bool hasWideFifthInterval = false;
+        hasWideFifthInterval = LEXMKChordSchemeHasOptWithTypeAndInfo(scheme,
+                                                                     LEXMKChordOptTypeWide,
+                                                                     LEXMKIntervalPerfectFifth);
+        if (hasWideFifthInterval) {
+            shouldCreateGuitarFifth = true;
         }
     }
     
+    
     LEXMKInterval *intervals;
     unsigned int length;
-    intervals = LEXMKIntervalCreateIntervalsForModeAndSusVal(scheme->mode,
-                                                       susVal,
-                                                       &length);
+    if (shouldCreateGuitarFifth == true) {
+        length = 1;
+        intervals = malloc(sizeof(LEXMKInterval) * length);
+        intervals[0] = LEXMKIntervalPerfectFifth;
+    }
+    else {
+        LEXMKChordOpt * opts = scheme->opts;
+        unsigned int optsLength = scheme->optsLength;
+        int susVal = -1;
+        for (int i = 0; i < optsLength; i ++) {
+            LEXMKChordOpt opt = opts[i];
+            if (opt.type == LEXMKChordOptTypeSus) {
+                susVal = opt.info;
+                break;
+            }
+        }
+        intervals = LEXMKIntervalCreateIntervalsForModeAndSusVal(scheme->mode,
+                                                                 susVal,
+                                                                 &length);
+    }
     // many other thing should be done
+    
+    LEXMKChordOpt opt;
+    for (int i = 0; i < scheme->optsLength; i ++) {
+        opt = scheme->opts[i];
+        if (opt.type == LEXMKChordOptTypeSus ||
+            (opt.type == LEXMKChordOptTypeWide && opt.info == LEXMKIntervalPerfectFifth) ) {
+            continue;
+        }
+        
+    }
     
     LEXMKIntervalArrayRef array = LEXMKIntervalArrayCreateWithIntervals(intervals,
                                                                         length,

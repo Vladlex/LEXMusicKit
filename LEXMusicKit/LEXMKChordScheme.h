@@ -11,6 +11,7 @@
 
 #include "LEXMKInterval.h"
 #include "LEXMKIntervalArray.h"
+#include "LEXMKChordOpt.h"
 
 enum {
     LEXMKChordModeMajor = 0,
@@ -20,14 +21,6 @@ enum {
 };
 typedef int LEXMKChordMode;
 
-enum {
-    LEXMKChordOptTypeUnknown = -1,
-    LEXMKChordOptTypeWide,
-    LEXMKChordOptTypeSus,
-    LEXMKChordOptTypeAdd,
-    LEXMKChordOptTypeAltBass
-};
-typedef int LEXMKChordOptType;
 
 enum {
     LEXMKChordSusNone = 0,
@@ -41,19 +34,6 @@ enum  {
 };
 typedef int LEXMKChordRecognitionNotation;
 
-/** Chord option with type and related info.
- 
- What info means for type?
- Wide - The widest interval in chord. Info is interval.
- Sus - suspended chord. Third interval changes to major second or perfect fourth. Make a note, that original third is no more in chord. Info is LEXMKchordSus2 for sus2 and LEXMKchordSus4 for sus4.
- Add - adding given interval to a chord. Info is interval.
- AltBass - first note of chord is different from tonic. Info is shift from tonic like -2 for chord Am/G.
- */
-struct LEXMKChordOpt {
-    LEXMKChordOptType type; /// Type of chord option.
-    int info; /// Info make sense only when type defined.
-};
-typedef struct LEXMKChordOpt LEXMKChordOpt;
 
 typedef struct _LEXMKChordScheme * LEXMKChordSchemeRef;
 
@@ -83,6 +63,17 @@ LEXMKChordOpt * LEXMKChordSchemeGetOpts(LEXMKChordSchemeRef scheme);
 /*  --- === Other type instances creating --- === */
 
 
+
+
+
+LEXMKChordOpt *LEXMKChordSchemeGetOptsWithType(LEXMKChordSchemeRef scheme,
+                                               LEXMKChordOptType type,
+                                               unsigned int * outFoundOptsLength);
+
+bool LEXMKChordSchemeHasOptWithTypeAndInfo(LEXMKChordSchemeRef scheme,
+                                                       LEXMKChordOptType type,
+                                                       int info);
+
 /**
  Returns intervals for mode.
  @param mode Chord mode.
@@ -91,7 +82,6 @@ LEXMKChordOpt * LEXMKChordSchemeGetOpts(LEXMKChordSchemeRef scheme);
  @returns An LEXMKInterval vector.
  */
 LEXMKInterval * LEXMKIntervalCreateIntervalsForModeAndSusVal(LEXMKChordMode mode, int susVal, unsigned int *outLength);
-
 
 
 /**
